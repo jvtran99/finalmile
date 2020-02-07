@@ -69,69 +69,72 @@ class RatesScreen extends StatelessWidget {
               image: NetworkImage(
                   'https://www.essexhomes.net/storage/app/medialibrary/public/2019/11/48673/conversions/5dd81489aed35696653990-hero.jpg'),
               fit: BoxFit.cover,
-              colorFilter: new ColorFilter.mode(Colors.lightBlue.withOpacity(0.6), 
-              BlendMode.dstATop
-              ),
+              colorFilter: new ColorFilter.mode(
+                  Colors.lightBlue.withOpacity(0.6), BlendMode.dstATop),
             ),
           ),
           alignment: Alignment.topCenter,
-          child: SingleChildScrollView(
-                      child: Container(
-              width: 500,
-              height: MediaQuery.of(context).size.height-80,
-              child: Container(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Assumption(),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                SwitchButton(),
-                                Text('Rate Alerts'),
-                              ],
-                            ),
+          child: SafeArea(
+            child: Container(
+              child: SingleChildScrollView(
+                child: Container(
+                  width: 500,
+                  height: MediaQuery.of(context).size.height - 80,
+                  child: Container(
+                    margin: const EdgeInsets.all(10.0),
+                    // padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Assumption(),
+                        Container(
+                          // padding: EdgeInsets.all(10),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    SwitchButton(),
+                                    Text('Rate Alerts'),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    CheckBoxWidget(),
+                                    Text('Minimize Closing Costs'),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          Spacer(),
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                CheckBoxWidget(),
-                                Text('Minimize Closing Costs'),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: 
-                      ListView.builder(
-                        itemCount: loantypes.length,
-                        itemBuilder: (ctx, i) => RateCard(
-                          loantypes[i].id,
-                          loantypes[i].year,
-                          loantypes[i].rate,
-                          loantypes[i].apr,
-                          loantypes[i].payment,
-                          loantypes[i].fees,
                         ),
-                      ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: loantypes.length,
+                            itemBuilder: (ctx, i) => RateCard(
+                              loantypes[i].id,
+                              loantypes[i].year,
+                              loantypes[i].rate,
+                              loantypes[i].apr,
+                              loantypes[i].payment,
+                              loantypes[i].fees,
+                            ),
+                          ),
+                        ),
+                        Divider(),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 0, 10, 10),
+                          alignment: Alignment.topRight,
+                          child: GestureDetector(
+                            onTap: () => clickApply(context),
+                            child: buildCustomButton1(context, 'Apply'),
+                          ),
+                        ),
+                      ],
                     ),
-                    Divider(),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0, 0, 10, 30),
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () => clickApply(context),
-                        child: buildCustomButton1(context, 'Apply'),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),

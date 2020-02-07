@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './property_input_screen.dart';
 import './select_home_screen.dart';
 import '../widgets/lien_item.dart';
 import '../widgets/menu.dart';
@@ -25,21 +24,16 @@ class SelectLien extends StatelessWidget {
     );
   }
 
-  void propertyInput(BuildContext ctx) {
+
+  void clickBack(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
       SelectHome.routeName,
     );
   }
 
-  void clickBack(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
-      Recommendations.routeName,
-    );
-  }
-
   void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      PropertyInput.routeName,
+      Recommendations.routeName,
     );
   }
 
@@ -87,6 +81,7 @@ class SelectLien extends StatelessWidget {
                           buildLienItem(context),
                         ]),
                       ),
+                      SizedBox(height: 20),
                       Container(
                         // margin: EdgeInsets.all(30),
                         width: double.infinity,

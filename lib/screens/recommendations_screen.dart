@@ -5,6 +5,8 @@ import '../widgets/recommendation_item.dart';
 import '../widgets/menu.dart';
 import '../widgets/checkbox.dart';
 import '../widgets/appbar.dart';
+import './select_lien_screen.dart';
+import '../widgets/custombutton.dart';
 
 class Recommendations extends StatelessWidget {
   static const routeName = '/our-recommendations';
@@ -24,6 +26,18 @@ class Recommendations extends StatelessWidget {
   }
 
   void clickCard(BuildContext ctx) {
+    Navigator.of(ctx).pushReplacementNamed(
+      RatesScreen.routeName,
+    );
+  }
+
+  void clickBack(BuildContext ctx) {
+    Navigator.of(ctx).pushReplacementNamed(
+      SelectLien.routeName,
+    );
+  }
+
+  void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
       RatesScreen.routeName,
     );
@@ -63,7 +77,8 @@ class Recommendations extends StatelessWidget {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
-                                buildSectionTitle(context, 'Our Recommendations'),
+                                buildSectionTitle(
+                                    context, 'Our Recommendations'),
                               ],
                             ),
                             Container(
@@ -141,7 +156,32 @@ class Recommendations extends StatelessWidget {
                               ),
                             ),
                           ),
-                          
+                          SizedBox(height: 20),
+                          Container(
+                            // margin: EdgeInsets.all(30),
+                            width: double.infinity,
+                            child: Align(
+                              alignment: FractionalOffset.bottomCenter,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      clickBack(context);
+                                      print('Back button hit');
+                                    },
+                                    child: buildCustomButton1(context, 'Back'),
+                                  ),
+                                  Spacer(),
+                                  GestureDetector(
+                                    onTap: () => clickNext(context),
+                                    child: buildCustomButton1(context, 'Next'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ]),
                       ),
                       // ),
