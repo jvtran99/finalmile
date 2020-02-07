@@ -63,7 +63,7 @@ class LoanPurpose extends StatelessWidget {
             child: SingleChildScrollView(
               child: Container(
                 color: Colors.grey[50],
-                height: MediaQuery.of(context).size.height - 80,
+                height: MediaQuery.of(context).size.height,
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
