@@ -55,98 +55,100 @@ class PersonalInfo extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              alignment: Alignment.topCenter,
-              width: 500,
+          child: Center(
+            child: SingleChildScrollView(
               child: Container(
-                color: Colors.grey[50],
-                // height: MediaQuery.of(context).size.height,
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        buildSectionTitle(context,
-                            'Let\'s start with some information about you'),
-                      ],
-                    ),
-                    Text(
-                        'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
-                    SizedBox(
-                      height: 6,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'First Name'),
+                height: MediaQuery.of(context).size.height,
+                alignment: Alignment.topCenter,
+                width: 500,
+                child: Container(
+                  color: Colors.grey[50],
+                  // height: MediaQuery.of(context).size.height,
+                  padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          buildSectionTitle(context,
+                              'Let\'s start with some information about you'),
+                        ],
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Last Name'),
+                      Text(
+                          'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
+                      SizedBox(
+                        height: 6,
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Mobile Phone Number'),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Last 4 digit of your Social Security #'),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        CheckBoxWidget(),
-                        Expanded(
-                          child: Text(
-                              "I authorize Certainty to verifty my credit."),
-                        ),
-                      ],
-                    ),
-                    Spacer(flex: 1),
-                    Container(
-                      // margin: EdgeInsets.all(30),
-                      width: double.infinity,
-                      child: Align(
-                        alignment: FractionalOffset.bottomCenter,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            GestureDetector(
-                              onTap: () {
-                                clickBack(context);
-                                print('Back button hit');
-                              },
-                              child: buildCustomButton1(context, 'Back'),
-                            ),
-                            Spacer(),
-                            GestureDetector(
-                              onTap: () => clickNext(context),
-                              child: buildCustomButton1(context, 'Next'),
-                            ),
-                          ],
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'First Name'),
                         ),
                       ),
-                    ),
-                  ],
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Last Name'),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Mobile Phone Number'),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Last 4 digit of your Social Security #'),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          CheckBoxWidget(),
+                          Expanded(
+                            child: Text(
+                                "I authorize Certainty to verifty my credit."),
+                          ),
+                        ],
+                      ),
+                      Spacer(flex: 1),
+                      Container(
+                        // margin: EdgeInsets.all(30),
+                        width: double.infinity,
+                        child: Align(
+                          alignment: FractionalOffset.bottomCenter,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              GestureDetector(
+                                onTap: () {
+                                  clickBack(context);
+                                  print('Back button hit');
+                                },
+                                child: buildCustomButton1(context, 'Back'),
+                              ),
+                              Spacer(),
+                              GestureDetector(
+                                onTap: () => clickNext(context),
+                                child: buildCustomButton1(context, 'Next'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
