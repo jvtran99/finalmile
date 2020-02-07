@@ -52,8 +52,7 @@ class PersonalInfo extends StatelessWidget {
                 Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
           ),
         ),
-        child: Center(
-          child: Container(
+        child: Container(
             alignment: Alignment.topCenter,
             width: 500,
             child: SingleChildScrollView(
@@ -119,8 +118,8 @@ class PersonalInfo extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Expanded(
-                      child: Container(
+                    Spacer(),
+                    Container(
                         // margin: EdgeInsets.all(30),
                         width: double.infinity,
                         child: Align(
@@ -144,13 +143,13 @@ class PersonalInfo extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ),
+                    
                   ],
                 ),
               ),
             ),
           ),
-        ),
+        
       ),
     );
   }
