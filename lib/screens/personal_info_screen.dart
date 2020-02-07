@@ -38,7 +38,7 @@ class PersonalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double c_width = MediaQuery.of(context).size.width;
+    // double c_width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -62,7 +62,6 @@ class PersonalInfo extends StatelessWidget {
               width: 500,
               child: Container(
                 color: Colors.grey[50],
-  
                 // height: MediaQuery.of(context).size.height,
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
                 child: Column(
