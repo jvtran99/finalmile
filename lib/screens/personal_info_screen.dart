@@ -52,13 +52,16 @@ class PersonalInfo extends StatelessWidget {
                 Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
           ),
         ),
-        child: Container(
-            alignment: Alignment.topCenter,
-            width: 500,
-            child: SingleChildScrollView(
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              alignment: Alignment.topCenter,
+              width: 500,
               child: Container(
-                color: Colors.grey[50],
-                height: MediaQuery.of(context).size.height - 80,
+                // color: Colors.grey[50],
+                color: Colors.red,
+                // height: MediaQuery.of(context).size.height,
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -118,38 +121,37 @@ class PersonalInfo extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    Spacer(flex: 1),
                     Container(
-                        // margin: EdgeInsets.all(30),
-                        width: double.infinity,
-                        child: Align(
-                          alignment: FractionalOffset.bottomCenter,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              GestureDetector(
-                                onTap: () {
-                                  clickBack(context);
-                                  print('Back button hit');
-                                },
-                                child: buildCustomButton1(context, 'Back'),
-                              ),
-                              Spacer(),
-                              GestureDetector(
-                                onTap: () => clickNext(context),
-                                child: buildCustomButton1(context, 'Next'),
-                              ),
-                            ],
-                          ),
+                      // margin: EdgeInsets.all(30),
+                      width: double.infinity,
+                      child: Align(
+                        alignment: FractionalOffset.bottomCenter,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {
+                                clickBack(context);
+                                print('Back button hit');
+                              },
+                              child: buildCustomButton1(context, 'Back'),
+                            ),
+                            Spacer(),
+                            GestureDetector(
+                              onTap: () => clickNext(context),
+                              child: buildCustomButton1(context, 'Next'),
+                            ),
+                          ],
                         ),
                       ),
-                    
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-        
+        ),
       ),
     );
   }
