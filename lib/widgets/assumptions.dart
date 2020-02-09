@@ -65,7 +65,7 @@ class AssumptionState extends State<Assumption> {
                 height: 40,
                 margin: EdgeInsets.symmetric(vertical: 5),
                 child: TextField(
-                  autofocus: true,
+                  // autofocus: true,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Zip code',
@@ -88,7 +88,7 @@ class AssumptionState extends State<Assumption> {
                   style: TextStyle(color: Colors.black54, fontSize: 16,),
                   decoration: InputDecoration.collapsed(
                     hintText: 'Credit Score Range',
-                    hasFloatingPlaceholder: true,
+                    // hasFloatingPlaceholder: true,
                   ),
                   isExpanded: true,
                   items: _creditRangeItems.map((String dropDownStringItem) {
@@ -119,7 +119,7 @@ class AssumptionState extends State<Assumption> {
                   style: TextStyle(color: Colors.black54, fontSize: 16, ),
                   decoration: InputDecoration.collapsed(
                     hintText: 'Property Type',
-                    hasFloatingPlaceholder: true,
+                    // hasFloatingPlaceholder: true,
                   ),
                   isExpanded: true,
                   items: _propertyItems.map((String dropDownStringItem) {
@@ -150,7 +150,7 @@ class AssumptionState extends State<Assumption> {
                   style: TextStyle(color: Colors.black54, fontSize: 16,),
                   decoration: InputDecoration.collapsed(
                     hintText: 'Occupancy',
-                    hasFloatingPlaceholder: true,
+                    // hasFloatingPlaceholder: true,
                   ),
                   isExpanded: true,
                   items: _occupancyItems.map((String dropDownStringItem) {

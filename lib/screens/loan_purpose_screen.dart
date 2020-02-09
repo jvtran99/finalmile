@@ -22,7 +22,7 @@ class LoanPurpose extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.start,
-        style: Theme.of(context).textTheme.title,
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }
@@ -167,31 +167,92 @@ class LoanPurpose extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: Container(
-                        // margin: EdgeInsets.all(30),
-                        width: double.infinity,
-                        child: Align(
-                          alignment: FractionalOffset.bottomCenter,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              GestureDetector(
-                                onTap: () {
-                                  clickBack(context);
-                                  print('Back button hit');
-                                },
-                                child: buildCustomButton1(context, 'Back'),
+                      child: Align(
+                        alignment: FractionalOffset.bottomRight,
+                        child: Row(
+                          children: <Widget>[
+                            FlatButton(
+                              onPressed: () {
+                                clickBack(context);
+                                print(Text('Next button hit'));
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.arrow_back,
+                                    color: Colors.cyan[700],
+                                    size: 20.0,
+                                  ),
+                                  SizedBox(width: 10.0),
+                                  Text(
+                                    'Back',
+                                    style: TextStyle(
+                                      color: Colors.cyan[700],
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Spacer(),
-                              GestureDetector(
-                                onTap: () => clickNext(context),
-                                child: buildCustomButton1(context, 'Next'),
+                            ),
+                            Spacer(),
+                            FlatButton(
+                              onPressed: () {
+                                clickNext(context);
+                                print(Text('Next button hit'));
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Text(
+                                    'Next',
+                                    style: TextStyle(
+                                      color: Colors.cyan[700],
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10.0),
+                                  Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.cyan[700],
+                                    size: 20.0,
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
+                  
+                    // Expanded(
+                    //   child: Container(
+                    //     // margin: EdgeInsets.all(30),
+                    //     width: double.infinity,
+                    //     child: Align(
+                    //       alignment: FractionalOffset.bottomCenter,
+                    //       child: Row(
+                    //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //         children: <Widget>[
+                    //           GestureDetector(
+                    //             onTap: () {
+                    //               clickBack(context);
+                    //               print('Back button hit');
+                    //             },
+                    //             child: buildCustomButton1(context, 'Back'),
+                    //           ),
+                    //           Spacer(),
+                    //           GestureDetector(
+                    //             onTap: () => clickNext(context),
+                    //             child: buildCustomButton1(context, 'Next'),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

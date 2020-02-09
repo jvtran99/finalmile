@@ -34,17 +34,17 @@ class MyApp extends StatelessWidget {
         // fontFamily: 'Raleway',
         primarySwatch: Colors.lightBlue,
         textTheme: TextTheme(
-          headline: TextStyle(
+          headline5: TextStyle(
             fontSize: 15.0,
             color: Colors.cyan[700],
             fontWeight: FontWeight.bold,
           ),
-          body1: TextStyle(
+          bodyText2: TextStyle(
             fontSize: 16.0,
             // color: Colors.red,
             fontFamily: 'Raleway',
           ),
-          title: TextStyle(
+          headline6: TextStyle(
             fontSize: 25.0,
             color: Colors.cyan[700],
             // fontWeight: FontWeight.bold,
