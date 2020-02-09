@@ -54,12 +54,11 @@ class PersonalInfo extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Container(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height-40,
               alignment: Alignment.topCenter,
               width: 500,
               child: Container(
                 color: Colors.grey[50],
-                // height: MediaQuery.of(context).size.height,
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -125,8 +124,8 @@ class PersonalInfo extends StatelessWidget {
                       "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
                       style: TextStyle(fontSize: 12),
                     ),
-                    Expanded(
-                      child: Align(
+                    Spacer(),
+                    Align(
                         alignment: FractionalOffset.bottomRight,
                         child: Row(
                           children: <Widget>[
@@ -184,7 +183,7 @@ class PersonalInfo extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
+                    
                   ],
                 ),
               ),
