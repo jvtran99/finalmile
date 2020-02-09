@@ -176,33 +176,6 @@ class SelectHome extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // Container(
-                //   // margin: EdgeInsets.all(30),
-                //   padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
-                //   width: 500,
-                //   color: Colors.grey[50],
-                //   child: Align(
-                //     alignment: FractionalOffset.bottomCenter,
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //       children: <Widget>[
-                //         GestureDetector(
-                //           onTap: () {
-                //             clickBack(context);
-                //             print('Back button hit');
-                //           },
-                //           child: buildCustomButton1(context, 'Back'),
-                //         ),
-                //         Spacer(),
-                //         GestureDetector(
-                //           onTap: () => clickNext(context),
-                //           child: buildCustomButton1(context, 'Next'),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           ),

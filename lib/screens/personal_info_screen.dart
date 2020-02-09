@@ -42,6 +42,7 @@ class PersonalInfo extends StatelessWidget {
       appBar: buildAppBar(context, "Personal Information"),
       drawer: MenuDrawer(),
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
@@ -54,7 +55,7 @@ class PersonalInfo extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Container(
-              height: MediaQuery.of(context).size.height-40,
+              // height: MediaQuery.of(context).size.height,
               alignment: Alignment.topCenter,
               width: 500,
               child: Container(
@@ -124,66 +125,38 @@ class PersonalInfo extends StatelessWidget {
                       "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
                       style: TextStyle(fontSize: 12),
                     ),
-                    Spacer(),
-                    Align(
-                        alignment: FractionalOffset.bottomRight,
-                        child: Row(
-                          children: <Widget>[
-                            // FlatButton(
-                            //   onPressed: () {
-                            //     clickBack(context);
-                            //     print(Text('Next button hit'));
-                            //   },
-                            //   child: Row(
-                            //     mainAxisAlignment: MainAxisAlignment.center,
-                            //     mainAxisSize: MainAxisSize.min,
-                            //     children: <Widget>[
-                            //       Icon(
-                            //         Icons.arrow_back,
-                            //         color: Colors.cyan[700],
-                            //         size: 20.0,
-                            //       ),
-                            //       SizedBox(width: 10.0),
-                            //       Text(
-                            //         'Back',
-                            //         style: TextStyle(
-                            //           color: Colors.cyan[700],
-                            //           fontSize: 20.0,
-                            //         ),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // ),
-                            Spacer(),
-                            FlatButton(
-                              onPressed: () {
-                                clickNext(context);
-                                print(Text('Next button hit'));
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Text(
-                                    'Next',
-                                    style: TextStyle(
-                                      color: Colors.cyan[700],
-                                      fontSize: 20.0,
-                                    ),
-                                  ),
-                                  SizedBox(width: 10.0),
-                                  Icon(
-                                    Icons.arrow_forward,
-                                    color: Colors.cyan[700],
-                                    size: 20.0,
-                                  ),
-                                ],
+                    // Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Spacer(),
+                        FlatButton(
+                          onPressed: () {
+                            clickNext(context);
+                            print(Text('Next button hit'));
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text(
+                                'Next',
+                                style: TextStyle(
+                                  color: Colors.cyan[700],
+                                  fontSize: 20.0,
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(width: 10.0),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.cyan[700],
+                                size: 20.0,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    
+                      ],
+                    ),
                   ],
                 ),
               ),
