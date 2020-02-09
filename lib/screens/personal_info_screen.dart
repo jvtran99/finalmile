@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './rates_screen.dart';
 import '../widgets/checkbox.dart';
-import '../widgets/custombutton.dart';
 import './loan_purpose_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
@@ -110,70 +109,52 @@ class PersonalInfo extends StatelessWidget {
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         CheckBoxWidget(),
                         Expanded(
                           child: Text(
-                              "I authorize Certainty to verifty my credit."),
+                            "I agree that my data can be used for the purposes noted below ",
+                            style: TextStyle(fontSize: 16),
+                          ),
                         ),
                       ],
                     ),
-                    // Spacer(flex: 1),
-                    // Container(
-                    //   // margin: EdgeInsets.all(30),
-                    //   width: double.infinity,
-                    //   child: Align(
-                    //     alignment: FractionalOffset.bottomCenter,
-                    //     child: Row(
-                    //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //       children: <Widget>[
-                    //         GestureDetector(
-                    //           onTap: () {
-                    //             clickBack(context);
-                    //             print('Back button hit');
-                    //           },
-                    //           child: buildCustomButton1(context, 'Back'),
-                    //         ),
-                    //         Spacer(),
-                    //         GestureDetector(
-                    //           onTap: () => clickNext(context),
-                    //           child: buildCustomButton1(context, 'Next'),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
+                    Text(
+                      "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+                      style: TextStyle(fontSize: 12),
+                    ),
                     Expanded(
                       child: Align(
                         alignment: FractionalOffset.bottomRight,
                         child: Row(
                           children: <Widget>[
-                            FlatButton(
-                              onPressed: () {
-                                clickBack(context);
-                                print(Text('Next button hit'));
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.cyan[700],
-                                    size: 20.0,
-                                  ),
-                                  SizedBox(width: 10.0),
-                                  Text(
-                                    'Back',
-                                    style: TextStyle(
-                                      color: Colors.cyan[700],
-                                      fontSize: 20.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            // FlatButton(
+                            //   onPressed: () {
+                            //     clickBack(context);
+                            //     print(Text('Next button hit'));
+                            //   },
+                            //   child: Row(
+                            //     mainAxisAlignment: MainAxisAlignment.center,
+                            //     mainAxisSize: MainAxisSize.min,
+                            //     children: <Widget>[
+                            //       Icon(
+                            //         Icons.arrow_back,
+                            //         color: Colors.cyan[700],
+                            //         size: 20.0,
+                            //       ),
+                            //       SizedBox(width: 10.0),
+                            //       Text(
+                            //         'Back',
+                            //         style: TextStyle(
+                            //           color: Colors.cyan[700],
+                            //           fontSize: 20.0,
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                             Spacer(),
                             FlatButton(
                               onPressed: () {
