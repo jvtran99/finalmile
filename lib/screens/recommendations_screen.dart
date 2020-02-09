@@ -27,7 +27,7 @@ class Recommendations extends StatelessWidget {
 
   void clickCard(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      RatesScreen.routeName,
+      RatesScreenRd.routeName,
     );
   }
 
@@ -39,7 +39,7 @@ class Recommendations extends StatelessWidget {
 
   void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      RatesScreen.routeName,
+      RatesScreenRd.routeName,
     );
   }
 

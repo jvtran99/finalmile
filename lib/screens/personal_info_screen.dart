@@ -23,7 +23,7 @@ Widget buildSectionTitle(BuildContext context, String text) {
 
 void clickBack(BuildContext ctx) {
   Navigator.of(ctx).pushReplacementNamed(
-    RatesScreen.routeName,
+    RatesScreenRd.routeName,
   );
 }
 

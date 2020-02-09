@@ -16,7 +16,7 @@ class MenuDrawer extends StatelessWidget {
             preferredSize: Size.fromHeight(15.0),
             child: AppBar(
               title: Text(
-                'Menu',
+                'Menu - Responsive Design',
               ),
               automaticallyImplyLeading: false,
             ),
