@@ -11,6 +11,7 @@ import './screens/loan_purpose_screen.dart';
 import './screens/recommendations_screen.dart';
 import './screens/select_lien_screen.dart';
 import './screens/select_home_screen.dart';
+// import './screens/layout_buider.dart';
 
 void main() => runApp(MyApp());
 
@@ -56,9 +57,9 @@ class MyApp extends StatelessWidget {
       ),
       // home: RatesScreen(),
       routes: {
-        '/': (ctx) => RatesScreen(),
-        // '/': (ctx) => SelectMortgage(),
-        RatesScreen.routeName: (ctx) => RatesScreen(),
+        // '/': (ctx) => RatesScreen(),
+        '/': (ctx) => RatesScreenRd(),
+        RatesScreenRd.routeName: (ctx) => RatesScreenRd(),
         SignIn.routeName: (ctx) => SignIn(),
         SelectLien.routeName: (ctx) => SelectLien(),
         PropertyInput.routeName: (ctx) => PropertyInput(),

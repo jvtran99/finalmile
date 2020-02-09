@@ -12,7 +12,7 @@ void clickBack(BuildContext ctx) {
 
 void clickNext(BuildContext ctx) {
   Navigator.of(ctx).pushReplacementNamed(
-    RatesScreen.routeName,
+    RatesScreenRd.routeName,
   );
 }
 
