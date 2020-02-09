@@ -203,8 +203,9 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                       ],
                     ),
                   ),
+                  Text('Help'),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.7,
+                    height: MediaQuery.of(context).size.height*0.6,
                     child: Expanded(
                       child: ListView.builder(
                         itemCount: loantypes.length,
@@ -219,15 +220,53 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                       ),
                     ),
                   ),
-                  Divider(),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 0, 10, 10),
-                    alignment: Alignment.topRight,
-                    child: GestureDetector(
-                      onTap: () => clickApply(context),
-                      child: buildCustomButton1(context, 'Apply'),
-                    ),
-                  ),
+                  // Divider(),
+                  // Expanded(
+                  //                     child: Container(
+                  //     padding: EdgeInsets.fromLTRB(0, 0, 10, 10),
+                  //     alignment: Alignment.topRight,
+                  //     child: GestureDetector(
+                  //       onTap: () => clickApply(context),
+                  //       child: buildCustomButton1(context, 'Apply'),
+                  //     ),
+                  //   ),
+                  // ),
+                  Expanded(
+                          child: Align(
+                            alignment: FractionalOffset.bottomRight,
+                            child: Row(
+                              children: <Widget>[
+                                Spacer(),
+                                FlatButton(
+                                  onPressed: () {
+                                    clickApply(context);
+                                    print(Text('Next button hit'));
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Text(
+                                        'Apply',
+                                        style: TextStyle(
+                                          color: Colors.cyan[700],
+                                          fontSize: 20.0,
+                                        ),
+                                      ),
+                                      SizedBox(width: 10.0),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.cyan[700],
+                                        size: 20.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      
                 ],
               ),
             ),
