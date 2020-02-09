@@ -169,19 +169,18 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
   Widget _smallDisplay() {
     return SafeArea(
       child: Container(
-        color: Colors.red,
+        // color: Colors.red,
+        // height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
           child: Container(
             width: 500,
-            height: MediaQuery.of(context).size.height - 80,
+            height: MediaQuery.of(context).size.height,
             child: Container(
               margin: const EdgeInsets.all(10.0),
-              // padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: <Widget>[
                   Assumption(),
                   Container(
-                    // padding: EdgeInsets.all(10),
                     child: Row(
                       children: <Widget>[
                         Container(
@@ -204,16 +203,19 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: loantypes.length,
-                      itemBuilder: (ctx, i) => RateCard(
-                        loantypes[i].id,
-                        loantypes[i].year,
-                        loantypes[i].rate,
-                        loantypes[i].apr,
-                        loantypes[i].payment,
-                        loantypes[i].fees,
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.7,
+                    child: Expanded(
+                      child: ListView.builder(
+                        itemCount: loantypes.length,
+                        itemBuilder: (ctx, i) => RateCard(
+                          loantypes[i].id,
+                          loantypes[i].year,
+                          loantypes[i].rate,
+                          loantypes[i].apr,
+                          loantypes[i].payment,
+                          loantypes[i].fees,
+                        ),
                       ),
                     ),
                   ),
