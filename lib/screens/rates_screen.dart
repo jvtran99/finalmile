@@ -174,7 +174,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
         child: SingleChildScrollView(
           child: Container(
             width: 500,
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height - 20,
             child: Container(
               margin: const EdgeInsets.all(10.0),
               child: Column(
@@ -203,10 +203,8 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                       ],
                     ),
                   ),
-                  Text('Help'),
-                  Container(
-                    height: MediaQuery.of(context).size.height*0.6,
-                    child: Expanded(
+  
+                  Expanded(
                       child: ListView.builder(
                         itemCount: loantypes.length,
                         itemBuilder: (ctx, i) => RateCard(
@@ -219,7 +217,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                         ),
                       ),
                     ),
-                  ),
+                 
                   // Divider(),
                   // Expanded(
                   //                     child: Container(
@@ -231,8 +229,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                   //     ),
                   //   ),
                   // ),
-                  Expanded(
-                          child: Align(
+                  Align(
                             alignment: FractionalOffset.bottomRight,
                             child: Row(
                               children: <Widget>[
@@ -265,7 +262,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                               ],
                             ),
                           ),
-                        ),
+                      
                       
                 ],
               ),
