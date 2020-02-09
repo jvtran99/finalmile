@@ -244,7 +244,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       Text(
-                                        'Apply',
+                                        'Get Started',
                                         style: TextStyle(
                                           color: Colors.cyan[700],
                                           fontSize: 20.0,
