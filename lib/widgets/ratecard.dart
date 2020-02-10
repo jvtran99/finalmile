@@ -256,7 +256,7 @@ class RateViewDetails extends StatelessWidget {
       onTap: () {},
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 8),
-        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         // height: 500,
         color: Colors.lightBlue[100],
         width: double.infinity,
