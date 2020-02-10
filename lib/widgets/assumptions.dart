@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class Assumption extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class Assumption extends StatefulWidget {
 
 class AssumptionState extends State<Assumption> {
   bool open = false;
+
+  // var controller = new MoneyMaskedTextController();
 
   var _creditRangeItems = [
     '>= 740',
@@ -198,6 +201,8 @@ class AssumptionState extends State<Assumption> {
                 height: 40,
                 margin: EdgeInsets.symmetric(vertical: 5),
                 child: TextFormField(
+                  // controller: controller,
+                  keyboardType: TextInputType.number,
                   decoration: (InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Estimated Home Value',
@@ -216,7 +221,7 @@ class AssumptionState extends State<Assumption> {
                   initialValue: "\$300,000",
                 ),
               ),
-              ],
+            ],
           ),
         ),
       ],

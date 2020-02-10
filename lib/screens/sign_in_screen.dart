@@ -34,11 +34,11 @@ class SignIn extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     'Sign In',
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                   Text(
                     'Sign Up',
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                   )
                 ],
               ),
