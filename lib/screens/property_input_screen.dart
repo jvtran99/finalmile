@@ -17,7 +17,7 @@ class PropertyInput extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.start,
-        style: Theme.of(context).textTheme.title,
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }

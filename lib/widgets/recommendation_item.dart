@@ -37,7 +37,7 @@ Widget buildRecommendationItem(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     'Benefits: \n \n- Save 467 a month on your current mortgage \n \n- Skip your February payment if you close by March 21st \n \n- Recoup the cost of your refinance in 3 months',
-                    style: Theme.of(context).textTheme.body1,
+                    style: Theme.of(context).textTheme.bodyText2,
                     // textAlign: TextAlign.center,
                   ),
                 ),

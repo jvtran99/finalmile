@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/home_item.dart';
 import '../widgets/menu.dart';
-import '../widgets/custombutton.dart';
 import '../widgets/appbar.dart';
 import './loan_purpose_screen.dart';
 import './select_lien_screen.dart';
@@ -19,7 +18,7 @@ class SelectHome extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.start,
-        style: Theme.of(context).textTheme.title,
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }

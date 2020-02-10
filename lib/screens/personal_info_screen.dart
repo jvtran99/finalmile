@@ -55,7 +55,7 @@ class PersonalInfo extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Container(
-              // height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height,
               alignment: Alignment.topCenter,
               width: 500,
               child: Container(
@@ -108,6 +108,7 @@ class PersonalInfo extends StatelessWidget {
                             hintText: 'Last 4 digit of your Social Security #'),
                       ),
                     ),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,41 +122,46 @@ class PersonalInfo extends StatelessWidget {
                         ),
                       ],
                     ),
+                    SizedBox(height: 10),
                     Text(
                       "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
                       style: TextStyle(fontSize: 12),
                     ),
-                    // Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Spacer(),
-                        FlatButton(
-                          onPressed: () {
-                            clickNext(context);
-                            print(Text('Next button hit'));
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Text(
-                                'Next',
-                                style: TextStyle(
-                                  color: Colors.cyan[700],
-                                  fontSize: 20.0,
-                                ),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Spacer(),
+                            FlatButton(
+                              onPressed: () {
+                                clickNext(context);
+                                print(Text('Next button hit'));
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Text(
+                                    'Next',
+                                    style: TextStyle(
+                                      color: Colors.cyan[700],
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10.0),
+                                  Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.cyan[700],
+                                    size: 20.0,
+                                  ),
+                                ],
                               ),
-                              SizedBox(width: 10.0),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.cyan[700],
-                                size: 20.0,
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
