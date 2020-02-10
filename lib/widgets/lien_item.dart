@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './checkbox.dart';
 import '../screens/recommendations_screen.dart';
 
-Widget buildLienItem(context) {
+Widget buildLienItem(context, String lender) {
   void propertyInput(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
       Recommendations.routeName,
@@ -33,7 +33,7 @@ Widget buildLienItem(context) {
                 Expanded(
                   flex: 4,
                   child: Text(
-                    'Wells Fargo Home',
+                    lender,
                     style: TextStyle(
                       color: Theme.of(context).primaryColorLight,
                     ),

@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../screens/rates_screen.dart';
+
+ void clickApply(BuildContext ctx) {
+    Navigator.of(ctx).pushReplacementNamed(
+      RatesScreenRd.routeName,
+    );
+  }
+
 Widget buildRecommendationItem(
   BuildContext context,
   int year,
@@ -152,7 +160,7 @@ Widget buildRecommendationItem(
         ),
         RaisedButton(
           color: Colors.lightBlue,
-          onPressed: () {},
+          onPressed: () => clickApply(context),
           child: Text(
             'Apply',
             style: TextStyle(

@@ -255,10 +255,10 @@ class RateViewDetails extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 8),
+        margin: EdgeInsets.fromLTRB(8,0,8,8),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         // height: 500,
-        color: Colors.lightBlue[100],
+        color: Colors.blueGrey[50],
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
