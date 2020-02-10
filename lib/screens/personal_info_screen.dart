@@ -98,7 +98,7 @@ class PersonalInfo extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              hintText: 'Mobile Phone Number'),
+                              hintText: 'Social Security Number'),
                         ),
                       ),
                       Container(
@@ -106,9 +106,10 @@ class PersonalInfo extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              hintText: 'Last 4 digit of your Social Security #'),
+                              hintText: 'Email Address'),
                         ),
                       ),
+                      
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -128,7 +129,7 @@ class PersonalInfo extends StatelessWidget {
                         "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
                         style: TextStyle(fontSize: 12),
                       ),
-                    
+                    SizedBox(height: 30),
                       // Expanded(
                       //   child: 
                         Align(
