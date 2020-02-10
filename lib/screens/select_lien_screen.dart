@@ -65,7 +65,7 @@ class SelectLien extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     buildSectionTitle(context,
-                        'Select which mortgage(s) you wish to refinance'),
+                        'Select which loan you wish to refinance'),
                   ],
                 ),
                 Container(
@@ -75,9 +75,8 @@ class SelectLien extends StatelessWidget {
                       Container(
                         // margin: EdgeInsets.symmetric(horizontal: 30),
                         child: Column(children: <Widget>[
-                          buildLienItem(context),
-                          buildLienItem(context),
-                          buildLienItem(context),
+                          buildLienItem(context, 'Wells Fargo Home'),
+                          buildLienItem(context, 'Chase Bank'),
                         ]),
                       ),
                       SizedBox(height: 20),
