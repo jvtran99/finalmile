@@ -91,7 +91,8 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                     child: SingleChildScrollView(
                       child: Container(
                         width: 700,
-                        color: Colors.grey[50],
+                        // color: Colors.grey[50],
+                        color: Colors.red[100],
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         height: MediaQuery.of(context).size.height - 40,
                         child: Container(
