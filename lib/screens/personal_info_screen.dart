@@ -66,7 +66,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   child: Container(
                     width: 700,
                     // color: Colors.grey[50],
-                    color: Colors.red[100],
+                    color: Colors.grey[50],
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,

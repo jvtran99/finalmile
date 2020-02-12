@@ -66,7 +66,7 @@ class _SelectHomeState extends State<SelectHome> {
                   children: <Widget>[
                     Container(
                       width: 700,
-                      color: Colors.red[100],
+                      color: Colors.grey[50],
                       height: MediaQuery.of(context).size.height,
                       padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                       child: Container(

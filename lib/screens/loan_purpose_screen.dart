@@ -65,7 +65,7 @@ class _LoanPurposeState extends State<LoanPurpose> {
             child: Container(
               width: 700,
               alignment: Alignment.topCenter,
-              color: Colors.red[100],
+              color: Colors.grey[50],
               // padding: EdgeInsets.all(30),
               child: SingleChildScrollView(
                 child: Container(

@@ -92,7 +92,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                       child: Container(
                         width: 700,
                         // color: Colors.grey[50],
-                        color: Colors.red[100],
+                        color: Colors.grey[50],
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         height: MediaQuery.of(context).size.height - 40,
                         child: Container(
