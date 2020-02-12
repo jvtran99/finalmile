@@ -71,7 +71,7 @@ class _RecommendationsState extends State<Recommendations> {
                 children: <Widget>[
                   Container(
                     width: 700,
-                    color: Colors.red[100],
+                    color: Colors.grey[50],
                     child: Column(
                       // alignment: Alignment.bottomCenter,
                       children: <Widget>[

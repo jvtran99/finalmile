@@ -64,7 +64,7 @@ class _SelectLienState extends State<SelectLien> {
               flex: 3,
               child: Container(
                 width: 700,
-                color: Colors.red[100],
+                color: Colors.grey[50],
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                 child: Column(
                   children: <Widget>[
