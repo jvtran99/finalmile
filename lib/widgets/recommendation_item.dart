@@ -41,6 +41,8 @@ Widget buildRecommendationItem(
                   ],
                 ),
                 Container(
+                  width: double.infinity,
+                  // margin: EdgeInsets.symmetric(horizontal:20 ),
                   color: Colors.grey[200],
                   padding: EdgeInsets.all(10),
                   child: Text(
@@ -94,6 +96,7 @@ Widget buildRecommendationItem(
         ),
         Container(
           padding: EdgeInsets.all(18),
+          width: 300,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
