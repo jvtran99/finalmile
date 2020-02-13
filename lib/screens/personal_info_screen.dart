@@ -67,7 +67,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     height: MediaQuery.of(context).size.height,
                     width: 700,
                     // color: Colors.grey[50],
-                    color: Colors.red[50],
+                    color: Colors.grey[50],
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -136,38 +136,40 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           style: TextStyle(fontSize: 12),
                         ),
                         SizedBox(height: 30),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Spacer(),
-                              FlatButton(
-                                onPressed: () {
-                                  clickNext(context);
-                                  print(Text('Next button hit'));
-                                },
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Text(
-                                      'Next',
-                                      style: TextStyle(
-                                        color: Colors.cyan[700],
-                                        fontSize: 20.0,
+                        Expanded(
+                                                  child: Align(
+                            alignment: Alignment.bottomRight,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Spacer(),
+                                FlatButton(
+                                  onPressed: () {
+                                    clickNext(context);
+                                    print(Text('Next button hit'));
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Text(
+                                        'Next',
+                                        style: TextStyle(
+                                          color: Colors.cyan[700],
+                                          fontSize: 20.0,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(width: 10.0),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.cyan[700],
-                                      size: 20.0,
-                                    ),
-                                  ],
+                                      SizedBox(width: 10.0),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.cyan[700],
+                                        size: 20.0,
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],
