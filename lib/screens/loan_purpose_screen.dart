@@ -72,7 +72,7 @@ class _LoanPurposeState extends State<LoanPurpose> {
                 child: SingleChildScrollView(
                   child: Container(
                     // color: Colors.grey[50],
-                    height: MediaQuery.of(context).size.height,
+                    height: MediaQuery.of(context).size.height - 40,
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
