@@ -64,9 +64,10 @@ class _PersonalInfoState extends State<PersonalInfo> {
               child: SingleChildScrollView(
                 child: Container(
                   child: Container(
+                    height: MediaQuery.of(context).size.height,
                     width: 700,
                     // color: Colors.grey[50],
-                    color: Colors.grey[50],
+                    color: Colors.red[50],
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
