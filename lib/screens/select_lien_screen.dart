@@ -68,7 +68,7 @@ class _SelectLienState extends State<SelectLien> {
                 child: SingleChildScrollView(
                   child: Container(
                                     child: Container(
-                      height: MediaQuery.of(context).size.height,
+                      height: MediaQuery.of(context).size.height - 40,
                       width: 700,
                       color: Colors.grey[50],
                       padding: EdgeInsets.fromLTRB(30, 10, 30, 0),

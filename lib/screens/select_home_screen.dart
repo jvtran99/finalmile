@@ -67,7 +67,7 @@ class _SelectHomeState extends State<SelectHome> {
                     Container(
                       width: 700,
                       color: Colors.grey[50],
-                      height: MediaQuery.of(context).size.height,
+                      height: MediaQuery.of(context).size.height - 40,
                       padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                       child: Container(
                         child: Column(
