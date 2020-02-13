@@ -41,8 +41,7 @@ class _SelectHomeState extends State<SelectHome> {
   }
 
   Widget _bigDisplay() {
-    return SingleChildScrollView(
-      child: Container(
+    return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
@@ -195,7 +194,7 @@ class _SelectHomeState extends State<SelectHome> {
             ),
           ],
         ),
-      ),
+    
     );
   }
 
