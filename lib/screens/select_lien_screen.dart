@@ -41,8 +41,7 @@ class _SelectLienState extends State<SelectLien> {
   }
 
   Widget _bigDisplay() {
-    return SingleChildScrollView(
-      child: Container(
+    return Container(
         // height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -161,7 +160,7 @@ class _SelectLienState extends State<SelectLien> {
             ),
           ],
         ),
-      ),
+      
     );
     // ),
   }
