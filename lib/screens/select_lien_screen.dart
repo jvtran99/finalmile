@@ -43,6 +43,7 @@ class _SelectLienState extends State<SelectLien> {
   Widget _bigDisplay() {
     return SingleChildScrollView(
       child: Container(
+        // height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
@@ -63,31 +64,32 @@ class _SelectLienState extends State<SelectLien> {
             Expanded(
               flex: 3,
               child: Container(
-                width: 700,
-                color: Colors.grey[50],
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        buildSectionTitle(
-                            context, 'Select which loan you wish to refinance'),
-                      ],
-                    ),
-                    Container(
-                      width: double.infinity,
+                alignment: Alignment.topCenter,
+                child: SingleChildScrollView(
+                  child: Container(
+                                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      width: 700,
+                      color: Colors.grey[50],
+                      padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                       child: Column(
                         children: <Widget>[
-                          Container(
-                            // margin: EdgeInsets.symmetric(horizontal: 30),
-                            child: Column(children: <Widget>[
-                              buildLienItem(context, 'Wells Fargo Home'),
-                              buildLienItem(context, 'Chase Bank'),
-                            ]),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              buildSectionTitle(context,
+                                  'Select which loan you wish to refinance'),
+                            ],
+                          ),
+                          Expanded(
+                            child: ListView(
+                              children: <Widget>[
+                                buildLienItem(context, 'Wells Fargo Home'),
+                                buildLienItem(context, 'Chase Bank'),
+                              ],
+                            ),
                           ),
                           SizedBox(height: 20),
-
                           Align(
                             alignment: FractionalOffset.bottomRight,
                             child: Row(
@@ -146,35 +148,10 @@ class _SelectLienState extends State<SelectLien> {
                               ],
                             ),
                           ),
-
-                          // Container(
-                          //   // margin: EdgeInsets.all(30),
-                          //   width: double.infinity,
-                          //   child: Align(
-                          //     alignment: FractionalOffset.bottomCenter,
-                          //     child: Row(
-                          //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          //       children: <Widget>[
-                          //         GestureDetector(
-                          //           onTap: () {
-                          //             clickBack(context);
-                          //             print('Back button hit');
-                          //           },
-                          //           child: buildCustomButton1(context, 'Back'),
-                          //         ),
-                          //         Spacer(),
-                          //         GestureDetector(
-                          //           onTap: () => clickNext(context),
-                          //           child: buildCustomButton1(context, 'Next'),
-                          //         ),
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
