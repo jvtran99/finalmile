@@ -6,6 +6,7 @@ import '../widgets/menu.dart';
 import '../widgets/checkbox.dart';
 import '../widgets/appbar.dart';
 import './select_lien_screen.dart';
+import './income_employment_screen.dart';
 
 class Recommendations extends StatefulWidget {
   static const routeName = '/our-recommendations';
@@ -43,7 +44,7 @@ class _RecommendationsState extends State<Recommendations> {
 
   void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      RatesScreenRd.routeName,
+      IncomeEmployment.routeName,
     );
   }
 
@@ -117,7 +118,7 @@ class _RecommendationsState extends State<Recommendations> {
                             elevation: 2,
                             child: InkWell(
                               onTap: () => clickCard(context),
-                              child: buildRecommendationItem(context, 20),
+                              child: buildRecommendationItem(context, 30),
                             ),
                           ),
                         ),
@@ -299,7 +300,7 @@ class _RecommendationsState extends State<Recommendations> {
                             elevation: 2,
                             child: InkWell(
                               onTap: () => clickCard(context),
-                              child: buildRecommendationItem(context, 20),
+                              child: buildRecommendationItem(context, 30),
                             ),
                           ),
                         ),

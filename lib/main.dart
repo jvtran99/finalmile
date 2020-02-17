@@ -12,6 +12,8 @@ import './screens/recommendations_screen.dart';
 import './screens/select_lien_screen.dart';
 import './screens/select_home_screen.dart';
 // import './screens/layout_buider.dart';
+// import './screens/Sliverexample.dart';
+import './screens/income_employment_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -59,6 +61,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (ctx) => RatesScreen(),
         '/': (ctx) => RatesScreenRd(),
+        // '/': (ctx) => IncomeEmployment(),
         RatesScreenRd.routeName: (ctx) => RatesScreenRd(),
         SignIn.routeName: (ctx) => SignIn(),
         SelectLien.routeName: (ctx) => SelectLien(),
@@ -69,6 +72,7 @@ class MyApp extends StatelessWidget {
         Recommendations.routeName: (ctx) => Recommendations(),
         MatchLiabilities.routeName: (ctx) => MatchLiabilities(),
         SelectHome.routeName: (ctx) => SelectHome(),
+        IncomeEmployment.routeName: (ctx) => IncomeEmployment(),
       },
     );
   }

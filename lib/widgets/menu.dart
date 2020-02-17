@@ -5,6 +5,7 @@ import '../screens/personal_info_screen.dart';
 import '../screens/loan_purpose_screen.dart';
 import '../screens/recommendations_screen.dart';
 import '../screens/select_home_screen.dart';
+import '../screens/income_employment_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   @override
@@ -69,6 +70,15 @@ class MenuDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(Recommendations.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('Employment Info'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(IncomeEmployment.routeName);
             },
           ),
         ],
