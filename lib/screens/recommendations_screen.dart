@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './rates_screen.dart';
 import '../widgets/recommendation_item.dart';
 import '../widgets/menu.dart';
 import '../widgets/checkbox.dart';
@@ -32,7 +31,7 @@ class _RecommendationsState extends State<Recommendations> {
 
   void clickCard(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      RatesScreenRd.routeName,
+      IncomeEmployment.routeName,
     );
   }
 

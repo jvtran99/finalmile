@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/ratecard.dart';
-
 import '../widgets/switch.dart';
 import '../widgets/checkbox.dart';
 import '../widgets/assumptions.dart';
 import '../models/loantype.dart';
-import '../widgets/custombutton.dart';
 import './personal_info_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';

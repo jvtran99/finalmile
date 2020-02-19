@@ -6,6 +6,8 @@ import '../screens/loan_purpose_screen.dart';
 import '../screens/recommendations_screen.dart';
 import '../screens/select_home_screen.dart';
 import '../screens/income_employment_screen.dart';
+import '../screens/assets_screen.dart';
+import '../screens/select_bank_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   @override
@@ -79,6 +81,24 @@ class MenuDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(IncomeEmployment.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('Asset Details'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(AssetDetails.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('Search Bank'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(SearchBank.routeName);
             },
           ),
         ],

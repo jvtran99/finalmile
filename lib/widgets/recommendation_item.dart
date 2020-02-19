@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../screens/rates_screen.dart';
+
+import '../screens/income_employment_screen.dart';
 
  void clickApply(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      RatesScreenRd.routeName,
+      IncomeEmployment.routeName,
     );
   }
 

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import './screens/rates_screen.dart';
@@ -14,9 +13,11 @@ import './screens/select_home_screen.dart';
 // import './screens/layout_buider.dart';
 // import './screens/Sliverexample.dart';
 import './screens/income_employment_screen.dart';
+import './screens/assets_screen.dart';
+import './screens/select_bank_screen.dart';
+import './screens/bottomsheet.dart';
 
 void main() => runApp(MyApp());
-
 
 /*
 Colors 
@@ -59,9 +60,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: RatesScreen(),
       routes: {
-        // '/': (ctx) => RatesScreen(),
         '/': (ctx) => RatesScreenRd(),
-        // '/': (ctx) => IncomeEmployment(),
+        // '/': (ctx) => BottomSheetExample(),
         RatesScreenRd.routeName: (ctx) => RatesScreenRd(),
         SignIn.routeName: (ctx) => SignIn(),
         SelectLien.routeName: (ctx) => SelectLien(),
@@ -73,6 +73,10 @@ class MyApp extends StatelessWidget {
         MatchLiabilities.routeName: (ctx) => MatchLiabilities(),
         SelectHome.routeName: (ctx) => SelectHome(),
         IncomeEmployment.routeName: (ctx) => IncomeEmployment(),
+        AssetDetails.routeName: (ctx) => AssetDetails(),
+        SearchBank.routeName: (ctx) => SearchBank(),
+
+        
       },
     );
   }
