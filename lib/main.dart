@@ -14,8 +14,8 @@ import './screens/select_home_screen.dart';
 // import './screens/Sliverexample.dart';
 import './screens/income_employment_screen.dart';
 import './screens/assets_screen.dart';
-import './screens/select_bank_screen.dart';
-import './screens/bottomsheet.dart';
+
+
 
 void main() => runApp(MyApp());
 
@@ -74,8 +74,6 @@ class MyApp extends StatelessWidget {
         SelectHome.routeName: (ctx) => SelectHome(),
         IncomeEmployment.routeName: (ctx) => IncomeEmployment(),
         AssetDetails.routeName: (ctx) => AssetDetails(),
-        SearchBank.routeName: (ctx) => SearchBank(),
-
         
       },
     );
