@@ -3,8 +3,8 @@ import '../models/bank.dart';
 
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
-import 'income_employment_screen.dart';
-import './select_bank_screen.dart';
+import './income_employment_screen.dart';
+import './sign_in_screen.dart';
 
 class AssetDetails extends StatefulWidget {
   static const routeName = '/asset-details';
@@ -36,20 +36,10 @@ class _AssetDetailsState extends State<AssetDetails> {
 
   void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      SearchBank.routeName,
+      SignIn.routeName,
     );
   }
 
-  List colors = [
-    Colors.red,
-    Colors.green,
-    Colors.yellow,
-    Colors.blue,
-    Colors.purple,
-    Colors.grey,
-    Colors.lightBlue,
-    Colors.green,
-  ];
 
   final List<BankType> banktypes = [
     BankType(
@@ -95,9 +85,6 @@ class _AssetDetailsState extends State<AssetDetails> {
                 Expanded(
                   flex: 3,
                   child: Container(
-                    // height: MediaQuery.of(context).size.height - 40,
-                    // width: 700,
-
                     color: Colors.grey[200],
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
@@ -117,7 +104,6 @@ class _AssetDetailsState extends State<AssetDetails> {
                         TextField(
                           onChanged: (value) {},
                           decoration: InputDecoration(
-                              // labelText: "Search for your bank here",
                               hintText: "Search for your bank here",
                               prefixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(
@@ -129,7 +115,6 @@ class _AssetDetailsState extends State<AssetDetails> {
                           width: double.infinity,
                           child: Text(
                             'Or select from popular ones',
-                            // style: TextStyle(fontSize: 12),
                           ),
                         ),
                         SizedBox(height: 10),
@@ -162,6 +147,84 @@ class _AssetDetailsState extends State<AssetDetails> {
                 Expanded(
                   flex: 1,
                   child: Container(),
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
+  void _showModalSheetSm() {
+    showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        builder: (builder) {
+          return Container(
+            height: 500,
+            decoration: new BoxDecoration(color: Colors.transparent),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    color: Colors.grey[200],
+                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            buildSectionTitle(context, 'Find your account'),
+                          ],
+                        ),
+                        Text(
+                            'Find your financial checking, savings, or investment account so we can validate your assets.'),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          onChanged: (value) {},
+                          decoration: InputDecoration(
+                              hintText: "Search for your bank here",
+                              prefixIcon: Icon(Icons.search),
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0)))),
+                        ),
+                        SizedBox(height: 20),
+                        Container(
+                          width: double.infinity,
+                          child: Text(
+                            'Or select from popular ones',
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Expanded(
+                          flex: 7,
+                          child: GridView.builder(
+                            gridDelegate:
+                                new SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3),
+                            itemCount: banktypes.length,
+                            itemBuilder: (ctx, i) => GestureDetector(
+                              onTap: () {
+                                clickNext(context);
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(10),
+                                color: Colors.white,
+                                child: Image.network(
+                                  banktypes[i].imageUrl,
+                                  // fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -366,7 +429,7 @@ class _AssetDetailsState extends State<AssetDetails> {
               Container(
                 width: 300,
                 child: RaisedButton(
-                  onPressed: _showModalSheet,
+                  onPressed: _showModalSheetSm,
                   color: Colors.lightBlue,
                   hoverColor: Colors.red[600],
                   child: Text(
@@ -483,7 +546,7 @@ class _AssetDetailsState extends State<AssetDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      appBar: buildAppBar(context, "Employment Information"),
+      appBar: buildAppBar(context, "Asset Information"),
       drawer: MenuDrawer(),
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 500) {

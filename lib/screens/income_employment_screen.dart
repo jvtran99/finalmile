@@ -56,7 +56,7 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                   child: new Container(
                     padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
                     // width: 500,
-                    color: Colors.lightBlue,
+                    color: Colors.grey[200],
                     child: Column(
                       children: <Widget>[
                         Text(
@@ -77,7 +77,8 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                           margin: EdgeInsets.symmetric(vertical: 5),
                           child: TextField(
                             decoration: InputDecoration(
-                                border: OutlineInputBorder(), hintText: 'XXX-XX-0987'),
+                                border: OutlineInputBorder(),
+                                hintText: 'XXX-XX-0987'),
                           ),
                         ),
                         SizedBox(height: 20),
@@ -98,6 +99,66 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                   flex: 1,
                   child: Container(),
                 ),
+              ],
+            ),
+          );
+        });
+  }
+
+void _showModalSheetSm() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return Container(
+            decoration: new BoxDecoration(color: Colors.transparent),
+            child: Row(
+              children: <Widget>[
+               
+                Expanded(
+                  flex: 3,
+                  child: new Container(
+                    padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
+                    // width: 500,
+                    color: Colors.grey[200],
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                            'Let\'s begin by collecting some info about you to see if we can find your income information'),
+                        SizedBox(height: 30),
+                        Text('Please enter your Date of Birth'),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: '02/12/2020'),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Text('Please enter your Social Security #'),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'XXX-XX-0987'),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Container(
+                          width: 200,
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          color: Colors.red,
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: Text('Find my Income'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+               
               ],
             ),
           );
@@ -317,174 +378,182 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
   }
 
   Widget _smallDisplay() {
-    return
-        // Container(
-        //   height: MediaQuery.of(context).size.height,
-        //   decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //       image: NetworkImage(
-        //           'https://www.essexhomes.net/storage/app/medialibrary/public/2019/11/48673/conversions/5dd81489aed35696653990-hero.jpg'),
-        //       fit: BoxFit.cover,
-        //       colorFilter: new ColorFilter.mode(
-        //           Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
-        //     ),
-        //   ),
-        //   child:
-        Center(
-      child: SingleChildScrollView(
+    return Center(
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        alignment: Alignment.topCenter,
+        width: 500,
         child: Container(
-          height: MediaQuery.of(context).size.height,
-          alignment: Alignment.topCenter,
-          width: 500,
-          child: SingleChildScrollView(
-            child: Container(
-              color: Colors.grey[50],
-              padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
-              child: Column(
+          color: Colors.grey[50],
+          padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      buildSectionTitle(context, 'Income and Employment'),
-                    ],
-                  ),
-                  Text(
-                      'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
-                  SizedBox(
-                    height: 6,
-                  ),
-                  RaisedButton(
-                    onPressed: () {},
-                    color: Colors.red,
-                    hoverColor: Colors.lightBlue,
-                    child: Text(
-                      'Start your Income Search',
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  SizedBox(height: 20),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      buildSectionTitle(context, 'Employment History'),
-                    ],
-                  ),
-                  Container(
-                    // color: Colors.blue,
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('Current Job(s)'),
-                        Container(
-                          width: 121,
-                          child: FlatButton(
-                            onPressed: () {},
-                            hoverColor: Colors.lightBlue,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.add),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add a Job',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        Text('Prior Job(s)'),
-                        Container(
-                          width: 121,
-                          child: FlatButton(
-                            onPressed: () {},
-                            hoverColor: Colors.lightBlue,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.add),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add a Job',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        Text('Self-Employment, Retirement and Other Income'),
-                        Container(
-                          width: 172,
-                          child: FlatButton(
-                            onPressed: () {},
-                            hoverColor: Colors.lightBlue,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.add),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add Income Source',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  //   Expanded(
-                  //     child: Align(
-                  //       alignment: Alignment.bottomRight,
-                  //       child: Row(
-                  //         mainAxisAlignment: MainAxisAlignment.end,
-                  //         children: <Widget>[
-                  //           Spacer(),
-                  //           FlatButton(
-                  //             onPressed: () {
-                  //               clickNext(context);
-                  //               print(Text('Next button hit'));
-                  //             },
-                  //             child: Row(
-                  //               mainAxisAlignment: MainAxisAlignment.center,
-                  //               mainAxisSize: MainAxisSize.min,
-                  //               children: <Widget>[
-                  //                 Text(
-                  //                   'Next',
-                  //                   style: TextStyle(
-                  //                     color: Colors.cyan[700],
-                  //                     fontSize: 20.0,
-                  //                   ),
-                  //                 ),
-                  //                 SizedBox(width: 10.0),
-                  //                 Icon(
-                  //                   Icons.arrow_forward,
-                  //                   color: Colors.cyan[700],
-                  //                   size: 20.0,
-                  //                 ),
-                  //               ],
-                  //             ),
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
+                  buildSectionTitle(context, 'Income and Employment'),
                 ],
               ),
-            ),
+              Text(
+                  'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
+              SizedBox(
+                height: 6,
+              ),
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                ),
+                onPressed: _showModalSheetSm,
+                color: Colors.lightBlue,
+                hoverColor: Colors.red[600],
+                child: Text(
+                  'Start your Income Search',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+                style: TextStyle(fontSize: 12),
+              ),
+              SizedBox(height: 10),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  buildSectionTitle(context, 'Employment History'),
+                ],
+              ),
+              Container(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Current Job(s)'),
+                    Container(
+                      width: 121,
+                      child: FlatButton(
+                        onPressed: () {},
+                        hoverColor: Colors.lightBlue,
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.add),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Add a Job',
+                              style: TextStyle(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text('Prior Job(s)'),
+                    Container(
+                      width: 121,
+                      child: FlatButton(
+                        onPressed: () {},
+                        hoverColor: Colors.lightBlue,
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.add),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Add a Job',
+                              style: TextStyle(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text('Self-Employment, Retirement and Other Income'),
+                    Container(
+                      width: 172,
+                      child: FlatButton(
+                        onPressed: () {},
+                        hoverColor: Colors.lightBlue,
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.add),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Add Income Source',
+                              style: TextStyle(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Spacer(),
+              Align(
+                alignment: FractionalOffset.bottomRight,
+                child: Row(
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        clickBack(context);
+                        print(Text('Next button hit'));
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            Icons.arrow_back,
+                            color: Colors.cyan[700],
+                            size: 20.0,
+                          ),
+                          SizedBox(width: 10.0),
+                          Text(
+                            'Back',
+                            style: TextStyle(
+                              color: Colors.cyan[700],
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    FlatButton(
+                      onPressed: () {
+                        clickNext(context);
+                        print(Text('Next button hit'));
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(
+                            'Next',
+                            style: TextStyle(
+                              color: Colors.cyan[700],
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          SizedBox(width: 10.0),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: Colors.cyan[700],
+                            size: 20.0,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-        // ),
       ),
     );
   }
