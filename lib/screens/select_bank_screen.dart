@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-import './recommendations_screen.dart';
+import './rates_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './assets_screen.dart';
 
-class IncomeEmployment extends StatefulWidget {
-  static const routeName = '/income-employment';
+class SearchBank extends StatefulWidget {
+  static const routeName = '/search-bank';
 
   @override
-  _IncomeEmploymentState createState() => _IncomeEmploymentState();
+  _SearchBankState createState() => _SearchBankState();
 }
 
-class _IncomeEmploymentState extends State<IncomeEmployment> {
+class _SearchBankState extends State<SearchBank> {
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       width: double.infinity,
@@ -29,80 +30,29 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
 
   void clickBack(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      Recommendations.routeName,
+      AssetDetails.routeName,
     );
   }
 
   void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      AssetDetails.routeName,
+      RatesScreenRd.routeName,
     );
   }
 
-  void _showModalSheet() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return Container(
-            decoration: new BoxDecoration(color: Colors.transparent),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Container(),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: new Container(
-                    padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
-                    // width: 500,
-                    color: Colors.lightBlue,
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                            'Let\'s begin by collecting some info about you to see if we can find your income information'),
-                        SizedBox(height: 30),
-                        Text('Please enter your Date of Birth'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: '02/12/2020'),
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Text('Please enter your Social Security #'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(), hintText: 'XXX-XX-0987'),
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Container(
-                          width: 200,
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          color: Colors.red,
-                          child: FlatButton(
-                            onPressed: () {},
-                            child: Text('Find my Income'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(),
-                ),
-              ],
-            ),
-          );
-        });
-  }
+  List colors = [
+    Colors.red,
+    Colors.green,
+    Colors.yellow,
+    Colors.blue,
+    Colors.purple,
+    Colors.grey,
+    Colors.lightBlue,
+    Colors.green,
+    Colors.yellow,
+    Colors.red,
+    Colors.purple,
+  ];
 
   Widget _bigDisplay() {
     return Container(
@@ -139,108 +89,49 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            buildSectionTitle(context, 'Income and Employment'),
+                            buildSectionTitle(context, 'Find your account'),
                           ],
                         ),
                         Text(
-                            'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
+                            'Find your financial checking, savings, or investment account so we can validate your assets.'),
                         SizedBox(
-                          height: 6,
+                          height: 30,
                         ),
-                        RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(10.0),
-                          ),
-                          onPressed: _showModalSheet,
-                          color: Colors.lightBlue,
-                          hoverColor: Colors.red[600],
-                          child: Text(
-                            'Start your Income Search',
-                            style: TextStyle(color: Colors.white),
-                          ),
+                        TextField(
+                          onChanged: (value) {},
+                          decoration: InputDecoration(
+                              // labelText: "Search for your bank here",
+                              hintText: "Search for your bank here",
+                              prefixIcon: Icon(Icons.search),
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0)))),
                         ),
-                        SizedBox(height: 10),
-                        Text(
-                          "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(height: 10),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            buildSectionTitle(context, 'Employment History'),
-                          ],
-                        ),
+                        SizedBox(height: 30),
                         Container(
                           width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text('Current Job(s)'),
-                              Container(
-                                width: 121,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add a Job',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Text('Prior Job(s)'),
-                              Container(
-                                width: 121,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add a Job',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                  'Self-Employment, Retirement and Other Income'),
-                              Container(
-                                width: 172,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add Income Source',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            'Or select from popular ones',
+                            // style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Expanded(
+                          flex: 7,
+                          child: GridView.count(
+                            crossAxisCount: 4,
+                            children: List.generate(11, (int index) {
+                              return Container(
+                                width: 60,
+                                margin: EdgeInsets.all(8),
+                                color: colors[index],
+                                child: Center(child: Text('Bank $index')),
+                              );
+                            }),
                           ),
                         ),
                         Expanded(
+                          flex: 2,
                           child: Align(
                             alignment: FractionalOffset.bottomRight,
                             child: Row(
