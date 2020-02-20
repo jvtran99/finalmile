@@ -53,45 +53,51 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                 ),
                 Expanded(
                   flex: 3,
-                  child: new Container(
-                    padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
-                    // width: 500,
-                    color: Colors.grey[200],
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                            'Let\'s begin by collecting some info about you to see if we can find your income information'),
-                        SizedBox(height: 30),
-                        Text('Please enter your Date of Birth'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: '02/12/2020'),
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    // width: 700,
+                    // padding: EdgeInsets.symmetric(horizontal: 20),
+                    // color: Colors.blue,
+                    child: new Container(
+                      padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
+                      width: 700,
+                      color: Colors.grey[200],
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                              'Let\'s begin by collecting some info about you to see if we can find your income information'),
+                          SizedBox(height: 30),
+                          Text('Please enter your Date of Birth'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: '02/12/2020'),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        Text('Please enter your Social Security #'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'XXX-XX-0987'),
+                          SizedBox(height: 20),
+                          Text('Please enter your Social Security #'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'XXX-XX-0987'),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        Container(
-                          width: 200,
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          color: Colors.red,
-                          child: FlatButton(
-                            onPressed: () {},
-                            child: Text('Find my Income'),
+                          SizedBox(height: 20),
+                          Container(
+                            width: 200,
+                            padding: EdgeInsets.symmetric(horizontal: 30),
+                            color: Colors.red,
+                            child: FlatButton(
+                              onPressed: () {},
+                              child: Text('Find my Income'),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -113,7 +119,6 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
             decoration: new BoxDecoration(color: Colors.transparent),
             child: Row(
               children: <Widget>[
-               
                 Expanded(
                   flex: 3,
                   child: new Container(
@@ -158,7 +163,6 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                     ),
                   ),
                 ),
-               
               ],
             ),
           );
@@ -380,7 +384,7 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
   Widget _smallDisplay() {
     return Center(
       child: SingleChildScrollView(
-              child: Container(
+        child: Container(
           height: MediaQuery.of(context).size.height,
           alignment: Alignment.topCenter,
           width: 500,
