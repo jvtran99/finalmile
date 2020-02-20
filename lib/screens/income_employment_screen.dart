@@ -105,7 +105,7 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
         });
   }
 
-void _showModalSheetSm() {
+  void _showModalSheetSm() {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
@@ -379,179 +379,181 @@ void _showModalSheetSm() {
 
   Widget _smallDisplay() {
     return Center(
-      child: Container(
-        height: MediaQuery.of(context).size.height,
-        alignment: Alignment.topCenter,
-        width: 500,
-        child: Container(
-          color: Colors.grey[50],
-          padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  buildSectionTitle(context, 'Income and Employment'),
-                ],
-              ),
-              Text(
-                  'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
-              SizedBox(
-                height: 6,
-              ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(10.0),
-                ),
-                onPressed: _showModalSheetSm,
-                color: Colors.lightBlue,
-                hoverColor: Colors.red[600],
-                child: Text(
-                  'Start your Income Search',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-                style: TextStyle(fontSize: 12),
-              ),
-              SizedBox(height: 10),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  buildSectionTitle(context, 'Employment History'),
-                ],
-              ),
-              Container(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      child: SingleChildScrollView(
+              child: Container(
+          height: MediaQuery.of(context).size.height,
+          alignment: Alignment.topCenter,
+          width: 500,
+          child: Container(
+            color: Colors.grey[50],
+            padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text('Current Job(s)'),
-                    Container(
-                      width: 121,
-                      child: FlatButton(
-                        onPressed: () {},
-                        hoverColor: Colors.lightBlue,
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.add),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Add a Job',
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text('Prior Job(s)'),
-                    Container(
-                      width: 121,
-                      child: FlatButton(
-                        onPressed: () {},
-                        hoverColor: Colors.lightBlue,
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.add),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Add a Job',
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text('Self-Employment, Retirement and Other Income'),
-                    Container(
-                      width: 172,
-                      child: FlatButton(
-                        onPressed: () {},
-                        hoverColor: Colors.lightBlue,
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.add),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Add Income Source',
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    buildSectionTitle(context, 'Income and Employment'),
                   ],
                 ),
-              ),
-              Spacer(),
-              Align(
-                alignment: FractionalOffset.bottomRight,
-                child: Row(
+                Text(
+                    'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
+                SizedBox(
+                  height: 6,
+                ),
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0),
+                  ),
+                  onPressed: _showModalSheetSm,
+                  color: Colors.lightBlue,
+                  hoverColor: Colors.red[600],
+                  child: Text(
+                    'Start your Income Search',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+                  style: TextStyle(fontSize: 12),
+                ),
+                SizedBox(height: 10),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        clickBack(context);
-                        print(Text('Next button hit'));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.arrow_back,
-                            color: Colors.cyan[700],
-                            size: 20.0,
-                          ),
-                          SizedBox(width: 10.0),
-                          Text(
-                            'Back',
-                            style: TextStyle(
-                              color: Colors.cyan[700],
-                              fontSize: 20.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Spacer(),
-                    FlatButton(
-                      onPressed: () {
-                        clickNext(context);
-                        print(Text('Next button hit'));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Colors.cyan[700],
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          SizedBox(width: 10.0),
-                          Icon(
-                            Icons.arrow_forward,
-                            color: Colors.cyan[700],
-                            size: 20.0,
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildSectionTitle(context, 'Employment History'),
                   ],
                 ),
-              ),
-            ],
+                Container(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Current Job(s)'),
+                      Container(
+                        width: 121,
+                        child: FlatButton(
+                          onPressed: () {},
+                          hoverColor: Colors.lightBlue,
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.add),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Add a Job',
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Text('Prior Job(s)'),
+                      Container(
+                        width: 121,
+                        child: FlatButton(
+                          onPressed: () {},
+                          hoverColor: Colors.lightBlue,
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.add),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Add a Job',
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Text('Self-Employment, Retirement and Other Income'),
+                      Container(
+                        width: 172,
+                        child: FlatButton(
+                          onPressed: () {},
+                          hoverColor: Colors.lightBlue,
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.add),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Add Income Source',
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Align(
+                  alignment: FractionalOffset.bottomRight,
+                  child: Row(
+                    children: <Widget>[
+                      FlatButton(
+                        onPressed: () {
+                          clickBack(context);
+                          print(Text('Next button hit'));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(
+                              Icons.arrow_back,
+                              color: Colors.cyan[700],
+                              size: 20.0,
+                            ),
+                            SizedBox(width: 10.0),
+                            Text(
+                              'Back',
+                              style: TextStyle(
+                                color: Colors.cyan[700],
+                                fontSize: 20.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Spacer(),
+                      FlatButton(
+                        onPressed: () {
+                          clickNext(context);
+                          print(Text('Next button hit'));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text(
+                              'Next',
+                              style: TextStyle(
+                                color: Colors.cyan[700],
+                                fontSize: 20.0,
+                              ),
+                            ),
+                            SizedBox(width: 10.0),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.cyan[700],
+                              size: 20.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
