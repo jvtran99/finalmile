@@ -153,6 +153,7 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                         ),
                         SizedBox(height: 20),
                         SheetButton(),
+                        SizedBox(height: 20),
                         // Container(
                         //   width: 200,
                         //   padding: EdgeInsets.symmetric(horizontal: 30),
