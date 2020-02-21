@@ -4,6 +4,7 @@ import './recommendations_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './assets_screen.dart';
+import './income_employment_filled_screen.dart';
 
 class IncomeEmployment extends StatefulWidget {
   static const routeName = '/income-employment';
@@ -87,15 +88,16 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          Container(
-                            width: 200,
-                            padding: EdgeInsets.symmetric(horizontal: 30),
-                            color: Colors.red,
-                            child: FlatButton(
-                              onPressed: () {},
-                              child: Text('Find my Income'),
-                            ),
-                          ),
+                          SheetButton(),
+                          // Container(
+                          //   width: 200,
+                          //   padding: EdgeInsets.symmetric(horizontal: 30),
+                          //   color: Colors.red,
+                          //   child: FlatButton(
+                          //     onPressed: () {},
+                          //     child: Text('Find my Income'),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -150,15 +152,16 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                           ),
                         ),
                         SizedBox(height: 20),
-                        Container(
-                          width: 200,
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          color: Colors.red,
-                          child: FlatButton(
-                            onPressed: () {},
-                            child: Text('Find my Income'),
-                          ),
-                        ),
+                        SheetButton(),
+                        // Container(
+                        //   width: 200,
+                        //   padding: EdgeInsets.symmetric(horizontal: 30),
+                        //   color: Colors.red,
+                        //   child: FlatButton(
+                        //     onPressed: () {},
+                        //     child: Text('Find my Income'),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -578,5 +581,42 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
         }
       }),
     );
+  }
+}
+
+class SheetButton extends StatefulWidget {
+  _SheetButtonState createState() => _SheetButtonState();
+}
+
+class _SheetButtonState extends State<SheetButton> {
+  bool checkingFlight = false;
+  bool success = false;
+  @override
+  Widget build(BuildContext context) {
+    return !checkingFlight
+        ? MaterialButton(
+            child: Text('Find my Income'),
+            color: Colors.lightBlue,
+            hoverColor: Colors.red,
+            onPressed: () async {
+              setState(() {
+                checkingFlight = true;
+              });
+              await Future.delayed(Duration(seconds: 3));
+              setState(() {
+                success = true;
+              });
+              await Future.delayed(Duration(milliseconds: 500));
+              // Navigator.pop(context);
+              Navigator.of(context).pushReplacementNamed(
+                IncomeEmploymentFilled.routeName,
+              );
+            })
+        : !success
+            ? CircularProgressIndicator()
+            : Icon(
+                Icons.check,
+                color: Colors.green,
+              );
   }
 }
