@@ -115,9 +115,11 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
 
   void _showModalSheetSm() {
     showModalBottomSheet(
+      isScrollControlled: true,
         context: context,
         builder: (builder) {
           return Container(
+            height: 400,
             decoration: new BoxDecoration(color: Colors.transparent),
             child: Row(
               children: <Widget>[
@@ -153,7 +155,7 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                         ),
                         SizedBox(height: 20),
                         SheetButton(),
-                        SizedBox(height: 20),
+                        SizedBox(height: 40),
                         // Container(
                         //   width: 200,
                         //   padding: EdgeInsets.symmetric(horizontal: 30),
