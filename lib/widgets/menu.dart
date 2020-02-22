@@ -7,6 +7,8 @@ import '../screens/recommendations_screen.dart';
 import '../screens/select_home_screen.dart';
 import '../screens/income_employment_screen.dart';
 import '../screens/assets_screen.dart';
+import '../screens/credit_report_screen.dart';
+import '../screens/underwriting_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   @override
@@ -95,6 +97,24 @@ class MenuDrawer extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context)
                         .pushReplacementNamed(AssetDetails.routeName);
+                  },
+                ),
+                Divider(),
+                ListTile(
+                  leading: Icon(Icons.shop),
+                  title: Text('Credit Report'),
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(CreditReport.routeName);
+                  },
+                ),
+                Divider(),
+                ListTile(
+                  leading: Icon(Icons.shop),
+                  title: Text('Underwriting'),
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(UnderwritingScreen.routeName);
                   },
                 ),
                 

@@ -127,7 +127,6 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                   flex: 3,
                   child: new Container(
                     padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
-                    // width: 500,
                     color: Colors.grey[200],
                     child: Column(
                       children: <Widget>[
@@ -156,15 +155,6 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                         SizedBox(height: 20),
                         SheetButton(),
                         SizedBox(height: 40),
-                        // Container(
-                        //   width: 200,
-                        //   padding: EdgeInsets.symmetric(horizontal: 30),
-                        //   color: Colors.red,
-                        //   child: FlatButton(
-                        //     onPressed: () {},
-                        //     child: Text('Find my Income'),
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),

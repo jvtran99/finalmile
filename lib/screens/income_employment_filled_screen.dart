@@ -5,6 +5,8 @@ import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './assets_screen.dart';
 import './income_employment_screen.dart';
+import '../widgets/job_item.dart';
+import '../widgets/add_item.dart';
 
 class IncomeEmploymentFilled extends StatefulWidget {
   static const routeName = '/income-employment-filled';
@@ -89,15 +91,6 @@ class _IncomeEmploymentFilledState extends State<IncomeEmploymentFilled> {
                           ),
                           SizedBox(height: 20),
                           SheetButton(),
-                          // Container(
-                          //   width: 200,
-                          //   padding: EdgeInsets.symmetric(horizontal: 30),
-                          //   color: Colors.red,
-                          //   child: FlatButton(
-                          //     onPressed: () {},
-                          //     child: Text('Find my Income'),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
@@ -478,93 +471,23 @@ class _IncomeEmploymentFilledState extends State<IncomeEmploymentFilled> {
                       buildSectionTitle(context, 'Employment History'),
                     ],
                   ),
-                  Container(
-                    width: double.infinity,
-                    child: Column(
+                  // Container(
+                  //   width: double.infinity,
+                  //   child: 
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text('Current Job(s)'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical:10),
-                          padding: EdgeInsets.all(10),
-                          // height: 100,
-                          color: Colors.grey[300],
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Row(children: <Widget>[
-                                  Text('USAA Group', style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Spacer(),
-                                  Icon(Icons.edit),
-                                ]),
-                                Text('(512)555-5654'),
-                                Text('Full-Time Sr. Programming Engineer'),
-                                Text('since December 2016'),
-                              ]),
-                        ),
-                        Container(
-                          width: 121,
-                          child: FlatButton(
-                            onPressed: () {},
-                            hoverColor: Colors.lightBlue,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.add),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add a Job',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
+                        buildJobItem(context, 'USAA Group', 'Full-Time Sr. Programming Engineer', 'December 2016'),
+                        buildJobItem(context, 'Suddath','Business Program Manager','January 2012'),
+                        buildAddItem(context, 'Add a Job',),
                         Text('Prior Job(s)'),
-                        Container(
-                          width: 121,
-                          child: FlatButton(
-                            onPressed: () {},
-                            hoverColor: Colors.lightBlue,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.add),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add a Job',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
+                        buildAddItem(context, 'Add a Job',),
                         Text('Self-Employment, Retirement and Other Income'),
-                        Container(
-                          width: 172,
-                          child: FlatButton(
-                            onPressed: () {},
-                            hoverColor: Colors.lightBlue,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.add),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add Income Source',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                        buildAddItem(context, 'Add Income Source'),
+                        ],
                     ),
-                  ),
+                  // ),
                   // Spacer(),
                   Align(
                     alignment: FractionalOffset.bottomRight,

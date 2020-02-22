@@ -15,9 +15,10 @@ import './screens/select_home_screen.dart';
 import './screens/income_employment_screen.dart';
 import './screens/income_employment_filled_screen.dart';
 import './screens/assets_screen.dart';
+import './screens/assets_filled_screen.dart';
+import './screens/credit_report_screen.dart';
+import './screens/underwriting_screen.dart';
 import './screens/bottomsheetexample.dart';
-
-
 
 void main() => runApp(MyApp());
 
@@ -76,8 +77,11 @@ class MyApp extends StatelessWidget {
         SelectHome.routeName: (ctx) => SelectHome(),
         IncomeEmployment.routeName: (ctx) => IncomeEmployment(),
         AssetDetails.routeName: (ctx) => AssetDetails(),
-        
-         IncomeEmploymentFilled.routeName: (ctx) => IncomeEmploymentFilled(),
+        IncomeEmploymentFilled.routeName: (ctx) => IncomeEmploymentFilled(),
+        AssetDetailsFilled.routeName: (ctx) => AssetDetailsFilled(),
+        CreditReport.routeName: (ctx) => CreditReport(),
+        UnderwritingScreen.routeName: (ctx) => UnderwritingScreen(),
+
         
       },
     );
