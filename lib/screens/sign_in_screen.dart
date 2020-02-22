@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import './assets_screen.dart';
+import './assets_filled_screen.dart';
 
 void signIn(BuildContext ctx) {
   Navigator.of(ctx).pushReplacementNamed(
-    AssetDetails.routeName,
+    AssetDetailsFilled.routeName,
   );
 }
 
