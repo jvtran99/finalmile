@@ -127,66 +127,73 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                           color: Colors.grey[200],
                           width: double.infinity,
                           height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                '\$422K',
-                                style: TextStyle(fontSize: 40),
-                              ),
-                              SizedBox(width: 10),
-                              Expanded(child: Text('Estimated Value')),
-                            ],
-                          ),
+                          // child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '\$422K',
+                                  style: TextStyle(fontSize: 40),
+                                ),
+                                SizedBox(width: 10),
+                                // Expanded(child: 
+                                Text('Estimated Value')
+                                // ),   
+                              ],
+                            ),
+                          // ),
                         ),
                         SizedBox(height: 30),
                         Container(
                           width: 300,
                           child: RaisedButton(
-                            onPressed: () {},
-                            color: Colors.lightBlue,
+                            onPressed: () {
+                              clickNext(context);
+                            },
+                            // color: Colors.lightBlue,
                             hoverColor: Colors.red[600],
                             child: Text(
                               'See if I\'m Approved',
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Spacer(),
-                                FlatButton(
-                                  onPressed: () {
-                                    clickNext(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        'Next',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.0),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.cyan[700],
-                                        size: 20.0,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        // Expanded(
+                        //   child: Align(
+                        //     alignment: Alignment.bottomRight,
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.end,
+                        //       children: <Widget>[
+                        //         Spacer(),
+                        //         FlatButton(
+                        //           onPressed: () {
+                        //             clickNext(context);
+                        //             print(Text('Next button hit'));
+                        //           },
+                        //           child: Row(
+                        //             mainAxisAlignment: MainAxisAlignment.center,
+                        //             mainAxisSize: MainAxisSize.min,
+                        //             children: <Widget>[
+                        //               Text(
+                        //                 'Next',
+                        //                 style: TextStyle(
+                        //                   color: Colors.cyan[700],
+                        //                   fontSize: 20.0,
+                        //                 ),
+                        //               ),
+                        //               SizedBox(width: 10.0),
+                        //               Icon(
+                        //                 Icons.arrow_forward,
+                        //                 color: Colors.cyan[700],
+                        //                 size: 20.0,
+                        //               ),
+                        //             ],
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
+                      
                       ],
                     ),
                   ),
@@ -291,48 +298,51 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                     Container(
                       width: 300,
                       child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.lightBlue,
+                        onPressed: () {
+                          clickNext(context);
+                        },
+                        // color: Colors.lightBlue,
                         hoverColor: Colors.red[600],
                         child: Text(
                           'See if I\'m Approved',
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Spacer(),
-                          FlatButton(
-                            onPressed: () {
-                              clickNext(context);
-                              print(Text('Next button hit'));
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                Text(
-                                  'Next',
-                                  style: TextStyle(
-                                    color: Colors.cyan[700],
-                                    fontSize: 20.0,
-                                  ),
-                                ),
-                                SizedBox(width: 10.0),
-                                Icon(
-                                  Icons.arrow_forward,
-                                  color: Colors.cyan[700],
-                                  size: 20.0,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // Align(
+                    //   alignment: Alignment.bottomRight,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.end,
+                    //     children: <Widget>[
+                    //       Spacer(),
+                    //       FlatButton(
+                    //         onPressed: () {
+                    //           clickNext(context);
+                    //           print(Text('Next button hit'));
+                    //         },
+                    //         child: Row(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           mainAxisSize: MainAxisSize.min,
+                    //           children: <Widget>[
+                    //             Text(
+                    //               'Next',
+                    //               style: TextStyle(
+                    //                 color: Colors.cyan[700],
+                    //                 fontSize: 20.0,
+                    //               ),
+                    //             ),
+                    //             SizedBox(width: 10.0),
+                    //             Icon(
+                    //               Icons.arrow_forward,
+                    //               color: Colors.cyan[700],
+                    //               size: 20.0,
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                  
                   ],
                 ),
               ),
