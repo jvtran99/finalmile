@@ -480,7 +480,7 @@ class _IncomeEmploymentFilledState extends State<IncomeEmploymentFilled> {
                         Text('Current Job(s)'),
                         buildJobItem(context, 'USAA Group', 'Full-Time Sr. Programming Engineer', 'December 2016'),
                         buildJobItem(context, 'Suddath','Business Program Manager','January 2012'),
-                        buildAddItem(context, 'Add a Job',),
+                        buildAddItem(context, 'Add a Job', ),
                         Text('Prior Job(s)'),
                         buildAddItem(context, 'Add a Job',),
                         Text('Self-Employment, Retirement and Other Income'),

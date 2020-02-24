@@ -35,7 +35,6 @@ class AssumptionState extends State<Assumption> {
     'Second Home',
     'Investment Property',
   ];
-
   var _currentOccupancySelected = 'Owner Occupied';
 
   Widget _buildAssumptionHeader(ThemeData theme) {

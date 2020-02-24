@@ -18,6 +18,7 @@ import './screens/assets_screen.dart';
 import './screens/assets_filled_screen.dart';
 import './screens/credit_report_screen.dart';
 import './screens/underwriting_screen.dart';
+import './screens/underwriting_analyze_screen.dart';
 import './screens/bottomsheetexample.dart';
 
 void main() => runApp(MyApp());
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
         AssetDetailsFilled.routeName: (ctx) => AssetDetailsFilled(),
         CreditReport.routeName: (ctx) => CreditReport(),
         UnderwritingScreen.routeName: (ctx) => UnderwritingScreen(),
+        AnalyzingLoan.routeName: (ctx) => AnalyzingLoan(),
 
         
       },

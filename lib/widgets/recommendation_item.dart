@@ -10,9 +10,7 @@ import '../screens/income_employment_screen.dart';
   }
 
 Widget buildRecommendationItem(
-  BuildContext context,
-  int year,
-) {
+  BuildContext context, int year) {
   return Container(
     margin: EdgeInsets.fromLTRB(18, 10, 18, 10),
     width: double.infinity,
