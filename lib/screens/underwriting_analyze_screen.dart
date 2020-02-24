@@ -4,6 +4,7 @@ import './underwriting_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import '../widgets/stepper.dart';
+import './loan_conditions.dart';
 
 class AnalyzingLoan extends StatefulWidget {
   static const routeName = '/analyzing-underwriting';
@@ -34,8 +35,8 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
-      AnalyzingLoan.routeName,
+    Navigator.of(ctx).pushNamed(
+      LoanConditions.routeName,
     );
   }
 
@@ -159,7 +160,9 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                       Container(
                         width: 300,
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            clickNext(context);
+                          },
                           // color: Colors.lightBlue,
                           hoverColor: Colors.lightBlue,
                           child: Text(
