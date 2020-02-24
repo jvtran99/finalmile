@@ -136,7 +136,9 @@ class _CreditReportState extends State<CreditReport> {
                     Container(
                     width: 300,
                     child: RaisedButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        clickNext(context);
+                      },
                       color: Colors.lightBlue,
                       hoverColor: Colors.red[600],
                       child: Text(

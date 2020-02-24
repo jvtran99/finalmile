@@ -302,7 +302,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                           clickNext(context);
                         },
                         // color: Colors.lightBlue,
-                        hoverColor: Colors.red[600],
+                        hoverColor: Colors.lightBlue,
                         child: Text(
                           'See if I\'m Approved',
                         ),
