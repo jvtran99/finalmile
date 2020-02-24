@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './credit_report_screen.dart';
+import './underwriting_analyze_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 
@@ -34,7 +35,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
 
   void clickNext(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
-      UnderwritingScreen.routeName,
+      AnalyzingLoan.routeName,
     );
   }
 
@@ -68,71 +69,77 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             buildSectionTitle(
-                                context, 'Order your Credit Report'),
+                                context, 'Let\s get you Approved!'),
                           ],
                         ),
                         Text(
-                            'Now that we\'ve gathered all of your property and personal details, it\'s time to order your credit report.  In order to proceed with this step, we will need a few details and your authorization.'),
+                            'Now that we\'ve gathered all of your property and personal details, it\'s time to underwrite your loan.'),
                         SizedBox(
-                          height: 6,
+                          height: 20,
                         ),
-                        Text('Credit Report'),
+                        Text('Loan Information'),
                         SizedBox(
                           height: 6,
                         ),
                         Container(
-                          padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
+                          margin: EdgeInsets.all(5),
                           color: Colors.grey[200],
-                          child: Column(
+                          width: double.infinity,
+                          height: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              // SizedBox(height: 30),
-                              Text('Please enter  or confirm your Birthdate'),
-                              Container(
-                                margin: EdgeInsets.symmetric(vertical: 5),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      hintText: '04/29/1975'),
-                                ),
-                              ),
-                              SizedBox(height: 8),
                               Text(
-                                  'Please enter or confirm your Social Security #'),
-                              Container(
-                                margin: EdgeInsets.symmetric(vertical: 5),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      hintText: 'XXX-XX-0987'),
-                                ),
+                                '803',
+                                style: TextStyle(fontSize: 40),
                               ),
-                              SizedBox(height: 8),
-                              Text('Please enter or confirm your Phone#'),
-                              Container(
-                                margin: EdgeInsets.symmetric(vertical: 5),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      hintText: '514-555-3584'),
-                                ),
+                              SizedBox(width: 10),
+                              Text('Credit Score'),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(5),
+                          color: Colors.grey[200],
+                          width: double.infinity,
+                          height: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                '18%',
+                                style: TextStyle(fontSize: 40),
                               ),
+                              SizedBox(width: 10),
+                              Text('Debt to Income'),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(5),
+                          color: Colors.grey[200],
+                          width: double.infinity,
+                          height: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                '\$422K',
+                                style: TextStyle(fontSize: 40),
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(child: Text('Estimated Value')),
                             ],
                           ),
                         ),
                         SizedBox(height: 30),
-                        Text(
-                          "By clicking the button above, you are authorizing Certainty to access your credit report for the purpose of a mortgage inquiry and you acknowledge consent and agree to the terms at the bottom of this page.",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(height: 30),
-                        // Expanded(
-                        //   child:
                         Container(
                           width: 300,
                           child: RaisedButton(
@@ -140,11 +147,10 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                             color: Colors.lightBlue,
                             hoverColor: Colors.red[600],
                             child: Text(
-                              'Order Credit Report',
+                              'See if I\'m Approved',
                             ),
                           ),
                         ),
-
                         Expanded(
                           child: Align(
                             alignment: Alignment.bottomRight,
@@ -179,7 +185,6 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                                 ),
                               ],
                             ),
-                            //   ),
                           ),
                         ),
                       ],
@@ -213,6 +218,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -235,26 +241,53 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                       color: Colors.grey[200],
                       width: double.infinity,
                       height: 100,
-                      child: Center(child: Text('803 Credit Score')),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            '803',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                          SizedBox(width: 10),
+                          Text('Credit Score'),
+                        ],
+                      ),
                     ),
                     Container(
                       margin: EdgeInsets.all(5),
                       color: Colors.grey[200],
                       width: double.infinity,
                       height: 100,
-                      child: Center(child: Text('18% Debt to Income')),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            '18%',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                          SizedBox(width: 10),
+                          Text('Debt to Income'),
+                        ],
+                      ),
                     ),
                     Container(
                       margin: EdgeInsets.all(5),
                       color: Colors.grey[200],
                       width: double.infinity,
                       height: 100,
-                      child: Center(child: Text('\$422K Estimated Value')),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            '\$422K',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                          SizedBox(width: 10),
+                          Text('Estimated Value'),
+                        ],
+                      ),
                     ),
-
                     SizedBox(height: 30),
-                    // Expanded(
-                    //   child:
                     Container(
                       width: 300,
                       child: RaisedButton(
@@ -262,7 +295,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                         color: Colors.lightBlue,
                         hoverColor: Colors.red[600],
                         child: Text(
-                          'Order Credit Report',
+                          'See if I\'m Approved',
                         ),
                       ),
                     ),
@@ -299,7 +332,6 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                           ),
                         ],
                       ),
-                      //   ),
                     ),
                   ],
                 ),
@@ -315,7 +347,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      appBar: buildAppBar(context, "Credit Report Information"),
+      appBar: buildAppBar(context, "Underwriting - Let\s get started"),
       drawer: MenuDrawer(),
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 500) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget buildAddItem(context, String addItemDescription) {
+Widget buildAddItem(context, String addItemDescription, ) {
   return FlatButton(
-    onPressed: () {},
+    onPressed: () => {},
     hoverColor: Colors.lightBlue,
     child: Row(
       children: <Widget>[

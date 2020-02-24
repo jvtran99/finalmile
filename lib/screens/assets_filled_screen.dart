@@ -284,7 +284,7 @@ class _AssetDetailsFilledState extends State<AssetDetailsFilled> {
                         Container(
                           width: 300,
                           child: RaisedButton(
-                            onPressed: _showModalSheet,
+                            onPressed: _showModalSheetSm,
                             color: Colors.lightBlue,
                             hoverColor: Colors.red[600],
                             child: Text(
@@ -304,91 +304,98 @@ class _AssetDetailsFilledState extends State<AssetDetailsFilled> {
                             buildSectionTitle(context, 'Your Assets'),
                           ],
                         ),
-                        Container(
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        Expanded(
+                          flex: 3,
+                          child: Container(
+                            width: double.infinity,
+                            child: ListView(
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                buildAssetItem(
+                                    context,
+                                    'IRA',
+                                    'Charles Schwab Web',
+                                    'Access...XXX 433',
+                                    '74,722'),
+                                buildAssetItem(
+                                    context,
+                                    'IRA',
+                                    'Charles Schwab Web',
+                                    'Access...XXX 457',
+                                    '36,199'),
+                                buildAssetItem(
+                                    context,
+                                    'Savings',
+                                    'Charles Schwab Web',
+                                    'Access...XXX 616',
+                                    '124,592'),
+                                buildAssetItem(
+                                    context,
+                                    'Checking',
+                                    'Charles Schwab Web',
+                                    'Access...XXX 838',
+                                    '14,600'),
+                                buildAddItem(context, 'Add')
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: FractionalOffset.bottomRight,
+                          child: Row(
                             children: <Widget>[
-                              Container(
-                                width: 121,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
+                              FlatButton(
+                                onPressed: () {
+                                  clickBack(context);
+                                  print(Text('Next button hit'));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.arrow_back,
+                                      color: Colors.cyan[700],
+                                      size: 20.0,
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Text(
+                                      'Back',
+                                      style: TextStyle(
+                                        color: Colors.cyan[700],
+                                        fontSize: 20.0,
                                       ),
-                                      Text(
-                                        'Add',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              FlatButton(
+                                onPressed: () {
+                                  clickNext(context);
+                                  print(Text('Next button hit'));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Text(
+                                      'Next',
+                                      style: TextStyle(
+                                        color: Colors.cyan[700],
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.cyan[700],
+                                      size: 20.0,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: FractionalOffset.bottomRight,
-                            child: Row(
-                              children: <Widget>[
-                                FlatButton(
-                                  onPressed: () {
-                                    clickBack(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.arrow_back,
-                                        color: Colors.cyan[700],
-                                        size: 20.0,
-                                      ),
-                                      SizedBox(width: 10.0),
-                                      Text(
-                                        'Back',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Spacer(),
-                                FlatButton(
-                                  onPressed: () {
-                                    clickNext(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        'Next',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.0),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.cyan[700],
-                                        size: 20.0,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
                         ),
                       ],
@@ -409,129 +416,132 @@ class _AssetDetailsFilledState extends State<AssetDetailsFilled> {
 
   Widget _smallDisplay() {
     return SingleChildScrollView(
-          child: Center(
+      child: Center(
+        child: Container(
+          // height: MediaQuery.of(context).size.height,
+          alignment: Alignment.topCenter,
+          width: 500,
           child: Container(
-            // height: MediaQuery.of(context).size.height,
-            alignment: Alignment.topCenter,
-            width: 500,
-            child: Container(
-              color: Colors.grey[50],
-              padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+            color: Colors.grey[50],
+            padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    buildSectionTitle(
+                        context, 'Next, let\'s gather your Asset details'),
+                  ],
+                ),
+                Text(
+                    'Skip the manual entry and let us search for your account information.  Simply connect to your financial institution so you can save time and get the right mortgage solution.'),
+                SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  width: 300,
+                  child: RaisedButton(
+                    onPressed: _showModalSheetSm,
+                    color: Colors.lightBlue,
+                    hoverColor: Colors.red[600],
+                    child: Text(
+                      'CONNECT',
+                    ),
+                  ),
+                ),
+                SizedBox(height: 30),
+                Text(
+                  "By clicking \"Connect\", you agree that Certainty can receive your accounts and financial information from our Trusted Partners, which includes redirecting you to our partner\'s page, if necessary.  As always, your information and activity is covered by our Terms of Use and Privacy Policy.",
+                  style: TextStyle(fontSize: 12),
+                ),
+                SizedBox(height: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    buildSectionTitle(context, 'Your Assets'),
+                  ],
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      buildSectionTitle(
-                          context, 'Next, let\'s gather your Asset details'),
+                      buildAssetItem(context, 'IRA', 'Charles Schwab Web',
+                          'Access...XXX 433', '74,722'),
+                      buildAssetItem(context, 'IRA', 'Charles Schwab Web',
+                          'Access...XXX 457', '36,199'),
+                      buildAssetItem(context, 'Savings', 'Charles Schwab Web',
+                          'Access...XXX 616', '124,592'),
+                      buildAssetItem(context, 'Checking', 'Charles Schwab Web',
+                          'Access...XXX 838', '14,600'),
+                      buildAddItem(context, 'Add')
                     ],
                   ),
-                  Text(
-                      'Skip the manual entry and let us search for your account information.  Simply connect to your financial institution so you can save time and get the right mortgage solution.'),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    width: 300,
-                    child: RaisedButton(
-                      onPressed: _showModalSheetSm,
-                      color: Colors.lightBlue,
-                      hoverColor: Colors.red[600],
-                      child: Text(
-                        'CONNECT',
+                ),
+                // Spacer(),
+                Align(
+                  alignment: FractionalOffset.bottomRight,
+                  child: Row(
+                    children: <Widget>[
+                      FlatButton(
+                        onPressed: () {
+                          clickBack(context);
+                          print(Text('Next button hit'));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(
+                              Icons.arrow_back,
+                              color: Colors.cyan[700],
+                              size: 20.0,
+                            ),
+                            SizedBox(width: 10.0),
+                            Text(
+                              'Back',
+                              style: TextStyle(
+                                color: Colors.cyan[700],
+                                fontSize: 20.0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  Text(
-                    "By clicking \"Connect\", you agree that Certainty can receive your accounts and financial information from our Trusted Partners, which includes redirecting you to our partner\'s page, if necessary.  As always, your information and activity is covered by our Terms of Use and Privacy Policy.",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  SizedBox(height: 20),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      buildSectionTitle(context, 'Your Assets'),
+                      Spacer(),
+                      FlatButton(
+                        onPressed: () {
+                          clickNext(context);
+                          print(Text('Next button hit'));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text(
+                              'Next',
+                              style: TextStyle(
+                                color: Colors.cyan[700],
+                                fontSize: 20.0,
+                              ),
+                            ),
+                            SizedBox(width: 10.0),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.cyan[700],
+                              size: 20.0,
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
-                  Container(
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        buildAssetItem(context, 'IRA','Charles Schwab Web','Access...XXX 433','74,722'),
-                        buildAssetItem(context, 'IRA','Charles Schwab Web','Access...XXX 457','36,199'),
-                        buildAssetItem(context, 'Savings','Charles Schwab Web','Access...XXX 616','124,592'),
-                        buildAssetItem(context, 'Checking','Charles Schwab Web','Access...XXX 838','14,600'),
-                        buildAddItem(context, 'Add')
-                        ],
-                    ),
-                  ),
-                  // Spacer(),
-                  Align(
-                    alignment: FractionalOffset.bottomRight,
-                    child: Row(
-                      children: <Widget>[
-                        FlatButton(
-                          onPressed: () {
-                            clickBack(context);
-                            print(Text('Next button hit'));
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Icon(
-                                Icons.arrow_back,
-                                color: Colors.cyan[700],
-                                size: 20.0,
-                              ),
-                              SizedBox(width: 10.0),
-                              Text(
-                                'Back',
-                                style: TextStyle(
-                                  color: Colors.cyan[700],
-                                  fontSize: 20.0,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        FlatButton(
-                          onPressed: () {
-                            clickNext(context);
-                            print(Text('Next button hit'));
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Text(
-                                'Next',
-                                style: TextStyle(
-                                  color: Colors.cyan[700],
-                                  fontSize: 20.0,
-                                ),
-                              ),
-                              SizedBox(width: 10.0),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.cyan[700],
-                                size: 20.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-   
+        ),
       ),
     );
   }
