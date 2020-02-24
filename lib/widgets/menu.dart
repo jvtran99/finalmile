@@ -9,6 +9,7 @@ import '../screens/income_employment_screen.dart';
 import '../screens/assets_screen.dart';
 import '../screens/credit_report_screen.dart';
 import '../screens/underwriting_screen.dart';
+import '../screens/loan_conditions.dart';
 
 class MenuDrawer extends StatelessWidget {
   @override
@@ -117,6 +118,16 @@ class MenuDrawer extends StatelessWidget {
                         .pushReplacementNamed(UnderwritingScreen.routeName);
                   },
                 ),
+                Divider(),
+                ListTile(
+                  leading: Icon(Icons.shop),
+                  title: Text('Loan Conditions'),
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(LoanConditions.routeName);
+                  },
+                ),
+                
                 
               ],
             ),

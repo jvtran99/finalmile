@@ -150,6 +150,7 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
             child: SingleChildScrollView(
               child: Container(
                   color: Colors.grey[50],
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
                   padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
                   child: Column(
                     children: <Widget>[

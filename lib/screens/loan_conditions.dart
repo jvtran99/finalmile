@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './underwriting_analyze_screen.dart';
-import '../widgets/job_item.dart';
-import '../widgets/add_item.dart';
 import '../widgets/loan_condition_item.dart';
 
 class LoanConditions extends StatefulWidget {
