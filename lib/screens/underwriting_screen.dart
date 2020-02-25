@@ -293,21 +293,20 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 30),
+                    // SizedBox(height: 30),
                     Container(
-                      margin: EdgeInsets.all(20),
-                      width: 300,
-                      child: RaisedButton(
-                        onPressed: () {
-                          clickNext(context);
-                        },
-                        color: Colors.lightBlue,
-                        // hoverColor: Colors.lightBlue,
-                        child: Text(
-                          'See if I\'m Approved', style: TextStyle(color: Colors.white),
+                        width: 300,
+                        child: RaisedButton(
+                          onPressed: () {
+                            clickNext(context);
+                          },
+                          // color: Colors.lightBlue,
+                          hoverColor: Colors.lightBlue,
+                          child: Text(
+                            'See if I\'m Approved',
+                          ),
                         ),
                       ),
-                    ),
                     // Align(
                     //   alignment: Alignment.bottomRight,
                     //   child: Row(
