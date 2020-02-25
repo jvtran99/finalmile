@@ -10,7 +10,7 @@ Widget buildLienItem(context, String lender, String lienType, String balance, St
   }
 
   return Card(
-    color: Theme.of(context).cardColor,
+    color: Colors.lightBlue[800],
     elevation: 2,
     child: InkWell(
       onTap: () {},

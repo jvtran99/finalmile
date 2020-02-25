@@ -248,7 +248,7 @@ class _SelectHomeState extends State<SelectHome> {
                                     child: buildHomeItem(
                                       context,
                                       Image.network(
-                                        'https://photos.zillowstatic.com/cc_ft_576/IS764p4abohia10000000000.webp',
+                                        'https://www.odcustomhomes.com/p/images/720x480-2322394701d9a009ba73f8b9f6304b8e34807a92.jpg',
                                         height: 250,
                                         width: double.infinity,
                                         fit: BoxFit.cover,
