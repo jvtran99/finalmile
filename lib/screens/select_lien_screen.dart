@@ -170,6 +170,15 @@ class _SelectLienState extends State<SelectLien> {
   Widget _smallDisplay() {
     return SingleChildScrollView(
       child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+                'https://www.essexhomes.net/storage/app/medialibrary/public/2019/11/48673/conversions/5dd81489aed35696653990-hero.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(
+                Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
+          ),
+        ),
         alignment: Alignment.topCenter,
         // child: SingleChildScrollView(
         child: Container(

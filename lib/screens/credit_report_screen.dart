@@ -285,8 +285,8 @@ class _CreditReportState extends State<CreditReport> {
                       onPressed: (){
                         clickNext(context);
                       },
-                      // color: Colors.lightBlue,
-                      hoverColor: Colors.lightBlue,
+                      color: Colors.lightBlue,
+                      // hoverColor: Colors.lightBlue,
                       child: Text(
                         'Order Credit Report',
                       ),

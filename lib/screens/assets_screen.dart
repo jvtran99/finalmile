@@ -402,11 +402,11 @@ class _AssetDetailsState extends State<AssetDetails> {
               Text(
                   'Skip the manual entry and let us search for your account information.  Simply connect to your financial institution so you can save time and get the right mortgage solution.'),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Container(
-                width: 300,
-                child: FlatButton(
+                // width: 300,
+                child: RaisedButton(
                   onPressed: _showModalSheetSm,
                   // color: Colors.lightBlue,
                   hoverColor: Colors.lightBlue,
@@ -415,7 +415,7 @@ class _AssetDetailsState extends State<AssetDetails> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Text(
                 "By clicking \"Connect\", you agree that Certainty can receive your accounts and financial information from our Trusted Partners, which includes redirecting you to our partner\'s page, if necessary.  As always, your information and activity is covered by our Terms of Use and Privacy Policy.",
                 style: TextStyle(fontSize: 12),
