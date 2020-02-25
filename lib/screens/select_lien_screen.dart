@@ -5,6 +5,7 @@ import '../widgets/lien_item.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './recommendations_screen.dart';
+import '../widgets/lien_wo_taxes_item.dart';
 
 class SelectLien extends StatefulWidget {
   static const routeName = '/select-lien';
@@ -42,125 +43,126 @@ class _SelectLienState extends State<SelectLien> {
 
   Widget _bigDisplay() {
     return Container(
-        // height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-                'https://www.essexhomes.net/storage/app/medialibrary/public/2019/11/48673/conversions/5dd81489aed35696653990-hero.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: new ColorFilter.mode(
-                Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
-          ),
+      // height: MediaQuery.of(context).size.height,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(
+              'https://www.essexhomes.net/storage/app/medialibrary/public/2019/11/48673/conversions/5dd81489aed35696653990-hero.jpg'),
+          fit: BoxFit.cover,
+          colorFilter: new ColorFilter.mode(
+              Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
         ),
-        alignment: Alignment.topCenter,
-        // child: SingleChildScrollView(
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.topCenter,
-                child: SingleChildScrollView(
+      ),
+      alignment: Alignment.topCenter,
+      // child: SingleChildScrollView(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              alignment: Alignment.topCenter,
+              child: SingleChildScrollView(
+                child: Container(
                   child: Container(
-                                    child: Container(
-                      height: MediaQuery.of(context).size.height - 40,
-                      width: 700,
-                      color: Colors.grey[50],
-                      padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
-                      child: Column(
-                        children: <Widget>[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                    height: MediaQuery.of(context).size.height - 40,
+                    width: 700,
+                    color: Colors.grey[50],
+                    padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                    child: Column(
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            buildSectionTitle(context,
+                                'Select which loan you wish to refinance'),
+                          ],
+                        ),
+                        Expanded(
+                          child: ListView(
                             children: <Widget>[
-                              buildSectionTitle(context,
-                                  'Select which loan you wish to refinance'),
+                              buildLienItem(context, 'Wells Fargo Home',
+                                  '1st Mortgage', '196,425', '1502'),
+                              buildLienWoTaxesItem(context, 'Chase Bank',
+                                  'Pool Renovation', '70,500', '802'),
                             ],
                           ),
-                          Expanded(
-                            child: ListView(
-                              children: <Widget>[
-                                buildLienItem(context, 'Wells Fargo Home'),
-                                buildLienItem(context, 'Chase Bank'),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Align(
-                            alignment: FractionalOffset.bottomRight,
-                            child: Row(
-                              children: <Widget>[
-                                FlatButton(
-                                  onPressed: () {
-                                    clickBack(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.arrow_back,
+                        ),
+                        SizedBox(height: 20),
+                        Align(
+                          alignment: FractionalOffset.bottomRight,
+                          child: Row(
+                            children: <Widget>[
+                              FlatButton(
+                                onPressed: () {
+                                  clickBack(context);
+                                  print(Text('Next button hit'));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.arrow_back,
+                                      color: Colors.cyan[700],
+                                      size: 20.0,
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Text(
+                                      'Back',
+                                      style: TextStyle(
                                         color: Colors.cyan[700],
-                                        size: 20.0,
+                                        fontSize: 20.0,
                                       ),
-                                      SizedBox(width: 10.0),
-                                      Text(
-                                        'Back',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                Spacer(),
-                                FlatButton(
-                                  onPressed: () {
-                                    clickNext(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        'Next',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.0),
-                                      Icon(
-                                        Icons.arrow_forward,
+                              ),
+                              Spacer(),
+                              FlatButton(
+                                onPressed: () {
+                                  clickNext(context);
+                                  print(Text('Next button hit'));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Text(
+                                      'Next',
+                                      style: TextStyle(
                                         color: Colors.cyan[700],
-                                        size: 20.0,
+                                        fontSize: 20.0,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.cyan[700],
+                                      size: 20.0,
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(),
-            ),
-          ],
-        ),
-      
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
+        ],
+      ),
     );
     // ),
   }
@@ -168,21 +170,12 @@ class _SelectLienState extends State<SelectLien> {
   Widget _smallDisplay() {
     return SingleChildScrollView(
       child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-                'https://www.essexhomes.net/storage/app/medialibrary/public/2019/11/48673/conversions/5dd81489aed35696653990-hero.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: new ColorFilter.mode(
-                Colors.lightBlue.withOpacity(0.1), BlendMode.dstATop),
-          ),
-        ),
         alignment: Alignment.topCenter,
         // child: SingleChildScrollView(
         child: Container(
           width: 500,
           color: Colors.grey[50],
-          padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+          padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
           child: Column(
             children: <Widget>[
               Column(
@@ -199,12 +192,15 @@ class _SelectLienState extends State<SelectLien> {
                     Container(
                       // margin: EdgeInsets.symmetric(horizontal: 30),
                       child: Column(children: <Widget>[
-                        buildLienItem(context, 'Wells Fargo Home'),
-                        buildLienItem(context, 'Chase Bank'),
+                        buildLienItem(context, 'Wells Fargo Home',
+                            '1st Mortgage', '196,425', '1502'),
+                        // buildLienItem(context, 'Chase Bank', 'Pool Renovation',
+                        //     '70,500', '802'),
+                            buildLienWoTaxesItem(context, 'Chase Bank', 'Pool Renovation',
+                            '70,500', '802')
                       ]),
                     ),
                     SizedBox(height: 20),
-
                     Align(
                       alignment: FractionalOffset.bottomRight,
                       child: Row(
@@ -263,31 +259,6 @@ class _SelectLienState extends State<SelectLien> {
                         ],
                       ),
                     ),
-
-                    // Container(
-                    //   // margin: EdgeInsets.all(30),
-                    //   width: double.infinity,
-                    //   child: Align(
-                    //     alignment: FractionalOffset.bottomCenter,
-                    //     child: Row(
-                    //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //       children: <Widget>[
-                    //         GestureDetector(
-                    //           onTap: () {
-                    //             clickBack(context);
-                    //             print('Back button hit');
-                    //           },
-                    //           child: buildCustomButton1(context, 'Back'),
-                    //         ),
-                    //         Spacer(),
-                    //         GestureDetector(
-                    //           onTap: () => clickNext(context),
-                    //           child: buildCustomButton1(context, 'Next'),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

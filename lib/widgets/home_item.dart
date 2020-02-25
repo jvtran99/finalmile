@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget buildHomeItem(context, Image image) {
+Widget buildHomeItem(context, Image image, String address) {
 
 
   return Card(
@@ -30,7 +30,7 @@ Widget buildHomeItem(context, Image image) {
                 horizontal: 20,
               ),
               child: Text(
-                '123 Congress St. Austin, TX 78723',
+                address,
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,

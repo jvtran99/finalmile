@@ -428,37 +428,38 @@ class _IncomeEmploymentFilledState extends State<IncomeEmploymentFilled> {
                       buildSectionTitle(context, 'Income and Employment'),
                     ],
                   ),
-                  Text(
-                      'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
-                  SizedBox(
-                    height: 6,
-                  ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0),
-                    ),
-                    onPressed: _showModalSheetSm,
-                    color: Colors.lightBlue,
-                    hoverColor: Colors.red[600],
-                    child: Text(
-                      'Start your Income Search',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-                    style: TextStyle(fontSize: 12),
-                  ),
+                  // Text(
+                  //     'Instead of manually entering your income and employment information, use our search and share feature to obtain the most accurate information.'),
+                  // SizedBox(
+                  //   height: 6,
+                  // ),
+                  // RaisedButton(
+                  //   shape: RoundedRectangleBorder(
+                  //     borderRadius: new BorderRadius.circular(10.0),
+                  //   ),
+                  //   onPressed: _showModalSheetSm,
+                  //   color: Colors.lightBlue,
+                  //   hoverColor: Colors.red[600],
+                  //   child: Text(
+                  //     'Start your Income Search',
+                  //     style: TextStyle(color: Colors.white),
+                  //   ),
+                  // ),
+                  // SizedBox(height: 10),
+                  // Text(
+                  //   "By clicking the button above, you agree that our trusted partners have persmission to share your income information with Certainty.  You authorize Certainty to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+                  //   style: TextStyle(fontSize: 12),
+                  // ),
                   SizedBox(height: 10),
                   Container(
-                    padding: EdgeInsets.all(8),
-                    color: Colors.grey[300],
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+                    color: Colors.red[200],
                     child: Row(
                       children: <Widget>[
-                        Icon(Icons.announcement),
-                        SizedBox(height: 10),
+                        Expanded(flex: 1, child: Icon(Icons.announcement, size: 45,)),
+                        // SizedBox(height: 20),
                         Expanded(
+                          flex: 6,
                             child: Text(
                                 'We found your information and have filled it in below.  Please review it below and add or update where necessary.')),
                       ],

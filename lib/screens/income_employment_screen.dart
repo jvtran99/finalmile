@@ -5,6 +5,7 @@ import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './assets_screen.dart';
 import './income_employment_filled_screen.dart';
+import '../widgets/add_item.dart';
 
 class IncomeEmployment extends StatefulWidget {
   static const routeName = '/income-employment';
@@ -233,75 +234,20 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                           ],
                         ),
                         Container(
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text('Current Job(s)'),
-                              Container(
-                                width: 121,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add a Job',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Text('Prior Job(s)'),
-                              Container(
-                                width: 121,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add a Job',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                  'Self-Employment, Retirement and Other Income'),
-                              Container(
-                                width: 172,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add Income Source',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Current Job(s)'),
+                      buildAddItem(context, 'Add a Job',),
+                      Text('Prior Job(s)'),
+                      buildAddItem(context, 'Add a Job',),
+                      Text('Self-Employment, Retirement and Other Income'),
+                      buildAddItem(context, 'Add Income Source',),
+                      ],
+                  ),
+                ),
+                Expanded(
                           child: Align(
                             alignment: FractionalOffset.bottomRight,
                             child: Row(
@@ -431,127 +377,74 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Current Job(s)'),
-                      Container(
-                        width: 121,
-                        child: FlatButton(
-                          onPressed: () {},
-                          hoverColor: Colors.lightBlue,
-                          child: Row(
-                            children: <Widget>[
-                              Icon(Icons.add),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Add a Job',
-                                style: TextStyle(fontSize: 12),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
+                      buildAddItem(context, 'Add a Job',),
                       Text('Prior Job(s)'),
-                      Container(
-                        width: 121,
-                        child: FlatButton(
-                          onPressed: () {},
-                          hoverColor: Colors.lightBlue,
-                          child: Row(
-                            children: <Widget>[
-                              Icon(Icons.add),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Add a Job',
-                                style: TextStyle(fontSize: 12),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
+                      buildAddItem(context, 'Add a Job',),
                       Text('Self-Employment, Retirement and Other Income'),
-                      Container(
-                        width: 172,
-                        child: FlatButton(
-                          onPressed: () {},
-                          hoverColor: Colors.lightBlue,
-                          child: Row(
-                            children: <Widget>[
-                              Icon(Icons.add),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Add Income Source',
-                                style: TextStyle(fontSize: 12),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                      buildAddItem(context, 'Add Income Source',),
+                      ],
                   ),
                 ),
                 Spacer(),
-                Align(
-                  alignment: FractionalOffset.bottomRight,
-                  child: Row(
-                    children: <Widget>[
-                      FlatButton(
-                        onPressed: () {
-                          clickBack(context);
-                          print(Text('Next button hit'));
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Icon(
-                              Icons.arrow_back,
-                              color: Colors.cyan[700],
-                              size: 20.0,
-                            ),
-                            SizedBox(width: 10.0),
-                            Text(
-                              'Back',
-                              style: TextStyle(
-                                color: Colors.cyan[700],
-                                fontSize: 20.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Spacer(),
-                      FlatButton(
-                        onPressed: () {
-                          clickNext(context);
-                          print(Text('Next button hit'));
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              'Next',
-                              style: TextStyle(
-                                color: Colors.cyan[700],
-                                fontSize: 20.0,
-                              ),
-                            ),
-                            SizedBox(width: 10.0),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.cyan[700],
-                              size: 20.0,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Align(
+                //   alignment: FractionalOffset.bottomRight,
+                //   child: Row(
+                //     children: <Widget>[
+                //       FlatButton(
+                //         onPressed: () {
+                //           clickBack(context);
+                //           print(Text('Next button hit'));
+                //         },
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           mainAxisSize: MainAxisSize.min,
+                //           children: <Widget>[
+                //             Icon(
+                //               Icons.arrow_back,
+                //               color: Colors.cyan[700],
+                //               size: 20.0,
+                //             ),
+                //             SizedBox(width: 10.0),
+                //             Text(
+                //               'Back',
+                //               style: TextStyle(
+                //                 color: Colors.cyan[700],
+                //                 fontSize: 20.0,
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //       Spacer(),
+                //       FlatButton(
+                //         onPressed: () {
+                //           clickNext(context);
+                //           print(Text('Next button hit'));
+                //         },
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           mainAxisSize: MainAxisSize.min,
+                //           children: <Widget>[
+                //             Text(
+                //               'Next',
+                //               style: TextStyle(
+                //                 color: Colors.cyan[700],
+                //                 fontSize: 20.0,
+                //               ),
+                //             ),
+                //             SizedBox(width: 10.0),
+                //             Icon(
+                //               Icons.arrow_forward,
+                //               color: Colors.cyan[700],
+                //               size: 20.0,
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+              
               ],
             ),
           ),
