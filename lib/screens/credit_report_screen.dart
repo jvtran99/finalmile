@@ -34,7 +34,7 @@ class _CreditReportState extends State<CreditReport> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       UnderwritingScreen.routeName,
     );
   }
@@ -212,7 +212,7 @@ class _CreditReportState extends State<CreditReport> {
             child: SingleChildScrollView(
               child: Container(
                 color: Colors.grey[50],
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 10, 30, 40),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[

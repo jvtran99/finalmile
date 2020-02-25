@@ -34,7 +34,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       AnalyzingLoan.routeName,
     );
   }
@@ -128,19 +128,19 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                           width: double.infinity,
                           height: 100,
                           // child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  '\$422K',
-                                  style: TextStyle(fontSize: 40),
-                                ),
-                                SizedBox(width: 10),
-                                // Expanded(child: 
-                                Text('Estimated Value')
-                                // ),   
-                              ],
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                '\$422K',
+                                style: TextStyle(fontSize: 40),
+                              ),
+                              SizedBox(width: 10),
+                              // Expanded(child:
+                              Text('Estimated Value')
+                              // ),
+                            ],
+                          ),
                           // ),
                         ),
                         SizedBox(height: 30),
@@ -193,7 +193,6 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                         //     ),
                         //   ),
                         // ),
-                      
                       ],
                     ),
                   ),
@@ -222,7 +221,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
             child: SingleChildScrollView(
               child: Container(
                 color: Colors.grey[50],
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 10, 30, 40),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   // crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,19 +295,19 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                     ),
                     SizedBox(height: 30),
                     RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0),
-                  ),
-                  onPressed: (){
-                    clickNext(context);
-                  },
-                  color: Colors.lightBlue,
-                  hoverColor: Colors.red[600],
-                  child: Text(
-                    'Start your Income Search',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      onPressed: () {
+                        clickNext(context);
+                      },
+                      color: Colors.lightBlue,
+                      hoverColor: Colors.red[600],
+                      child: Text(
+                        'Start your Income Search',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                     Container(
                       width: 300,
                       child: RaisedButton(
@@ -316,7 +315,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                           clickNext(context);
                         },
                         // color: Colors.lightBlue,
-                        hoverColor: Colors.lightBlue,
+                        // hoverColor: Colors.lightBlue,
                         child: Text(
                           'See if I\'m Approved',
                         ),
@@ -356,7 +355,6 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                     //     ],
                     //   ),
                     // ),
-                  
                   ],
                 ),
               ),
