@@ -21,7 +21,7 @@ class MenuDrawer extends StatelessWidget {
             preferredSize: Size.fromHeight(15.0),
             child: AppBar(
               title: Text(
-                'Menu - RateScreenEdits',
+                'Menu',
               ),
               automaticallyImplyLeading: false,
             ),

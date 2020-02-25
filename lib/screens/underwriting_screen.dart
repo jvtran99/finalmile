@@ -304,7 +304,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                         color: Colors.lightBlue,
                         // hoverColor: Colors.lightBlue,
                         child: Text(
-                          'See if I\'m Approved',
+                          'See if I\'m Approved', style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),

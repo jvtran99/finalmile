@@ -405,13 +405,13 @@ class _AssetDetailsState extends State<AssetDetails> {
                 height: 20,
               ),
               Container(
-                // width: 300,
+                width: 300,
                 child: RaisedButton(
                   onPressed: _showModalSheetSm,
-                  // color: Colors.lightBlue,
-                  hoverColor: Colors.lightBlue,
+                  color: Colors.lightBlue,
+                  // hoverColor: Colors.lightBlue,
                   child: Text(
-                    'CONNECT',
+                    'CONNECT', style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
