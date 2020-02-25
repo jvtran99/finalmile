@@ -481,7 +481,7 @@ class _SheetButtonState extends State<SheetButton> {
   Widget build(BuildContext context) {
     return !checkingFlight
         ? MaterialButton(
-            child: Text('Find my Income'),
+            child: Text('Find my Income', style: TextStyle(color: Colors.white),),
             color: Colors.lightBlue,
             hoverColor: Colors.red,
             onPressed: () async {

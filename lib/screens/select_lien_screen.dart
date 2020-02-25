@@ -194,10 +194,8 @@ class _SelectLienState extends State<SelectLien> {
                       child: Column(children: <Widget>[
                         buildLienItem(context, 'Wells Fargo Home',
                             '1st Mortgage', '196,425', '1502'),
-                        // buildLienItem(context, 'Chase Bank', 'Pool Renovation',
-                        //     '70,500', '802'),
-                            buildLienWoTaxesItem(context, 'Chase Bank', 'Pool Renovation',
-                            '70,500', '802')
+                        buildLienWoTaxesItem(context, 'Chase Bank',
+                            'Pool Renovation', '70,500', '802')
                       ]),
                     ),
                     SizedBox(height: 20),

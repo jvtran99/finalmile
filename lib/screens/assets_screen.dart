@@ -404,6 +404,18 @@ class _AssetDetailsState extends State<AssetDetails> {
               SizedBox(
                 height: 30,
               ),
+              RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0),
+                  ),
+                  onPressed: _showModalSheetSm,
+                  color: Colors.lightBlue,
+                  hoverColor: Colors.red[600],
+                  child: Text(
+                    'CONNECT',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               Container(
                 width: 300,
                 child: RaisedButton(
