@@ -288,7 +288,7 @@ class _CreditReportState extends State<CreditReport> {
                       color: Colors.lightBlue,
                       // hoverColor: Colors.lightBlue,
                       child: Text(
-                        'Order Credit Report',
+                        'Order Credit Report', style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),

@@ -68,6 +68,7 @@ class Sliver extends StatelessWidget {
                           width: double.infinity,
                           fit: BoxFit.cover,
                         ),
+                        '123 Address'
                       ),
                     ),
                     buildHomeItem(
@@ -78,6 +79,7 @@ class Sliver extends StatelessWidget {
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
+                      '3984 Street'
                     ),
                   ]),
               ),
