@@ -5,6 +5,7 @@ import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import './income_employment_screen.dart';
 import './sign_in_screen.dart';
+import '../widgets/add_item.dart';
 
 class AssetDetails extends StatefulWidget {
   static const routeName = '/asset-details';
@@ -283,8 +284,8 @@ class _AssetDetailsState extends State<AssetDetails> {
                           width: 300,
                           child: RaisedButton(
                             onPressed: _showModalSheet,
-                            color: Colors.lightBlue,
-                            hoverColor: Colors.red[600],
+                            // color: Colors.lightBlue,
+                            hoverColor: Colors.lightBlue,
                             child: Text(
                               'CONNECT',
                             ),
@@ -302,33 +303,7 @@ class _AssetDetailsState extends State<AssetDetails> {
                             buildSectionTitle(context, 'Your Assets'),
                           ],
                         ),
-                        Container(
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                width: 121,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  hoverColor: Colors.lightBlue,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.add),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Add',
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        buildAddItem(context, 'Add',),
                         Expanded(
                           child: Align(
                             alignment: FractionalOffset.bottomRight,
@@ -433,8 +408,8 @@ class _AssetDetailsState extends State<AssetDetails> {
                 width: 300,
                 child: RaisedButton(
                   onPressed: _showModalSheetSm,
-                  color: Colors.lightBlue,
-                  hoverColor: Colors.red[600],
+                  // color: Colors.lightBlue,
+                  hoverColor: Colors.lightBlue,
                   child: Text(
                     'CONNECT',
                   ),
@@ -452,33 +427,7 @@ class _AssetDetailsState extends State<AssetDetails> {
                   buildSectionTitle(context, 'Your Assets'),
                 ],
               ),
-              Container(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: 121,
-                      child: FlatButton(
-                        onPressed: () {},
-                        hoverColor: Colors.lightBlue,
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.add),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Add',
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              buildAddItem(context, 'Add',),
               Spacer(),
               Align(
                 alignment: FractionalOffset.bottomRight,

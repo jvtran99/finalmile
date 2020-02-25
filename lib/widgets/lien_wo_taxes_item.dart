@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import './checkbox.dart';
-import '../screens/recommendations_screen.dart';
+// import '../screens/recommendations_screen.dart';
 
-Widget buildLienItem(context, String lender, String lienType, String balance, String monthlyPayment) {
-  void propertyInput(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
-      Recommendations.routeName,
-    );
-  }
+Widget buildLienWoTaxesItem(context, String lender, String lienType, String balance, String monthlyPayment) {
+  // void propertyInput(BuildContext ctx) {
+  //   Navigator.of(ctx).pushReplacementNamed(
+  //     Recommendations.routeName,
+  //   );
+  // }
 
   return Card(
     color: Theme.of(context).cardColor,
@@ -148,36 +148,36 @@ Widget buildLienItem(context, String lender, String lienType, String balance, St
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Are Taxes and Insurance included in the payment?',
-              style: TextStyle(
-                color: Theme.of(context).primaryColorLight,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                FlatButton(
-                  color: Colors.lightBlue,
-                  onPressed: () {},
-                  child: Text(
-                    'YES',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                FlatButton(
-                  color: Colors.lightBlue,
-                  onPressed: () {},
-                  child: Text(
-                    'NO',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // Text(
+            //   'Are Taxes and Insurance included in the payment?',
+            //   style: TextStyle(
+            //     color: Theme.of(context).primaryColorLight,
+            //   ),
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: <Widget>[
+            //     FlatButton(
+            //       color: Colors.lightBlue,
+            //       onPressed: () => propertyInput(context),
+            //       child: Text(
+            //         'YES',
+            //         style: TextStyle(color: Colors.white),
+            //       ),
+            //     ),
+            //     FlatButton(
+            //       color: Colors.lightBlue,
+            //       onPressed: () {},
+            //       child: Text(
+            //         'NO',
+            //         style: TextStyle(color: Colors.white),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             Row(
               children: <Widget>[
                 CheckBoxWidget(),
