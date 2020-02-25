@@ -294,28 +294,15 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                       ),
                     ),
                     SizedBox(height: 30),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                      ),
-                      onPressed: () {
-                        clickNext(context);
-                      },
-                      color: Colors.lightBlue,
-                      hoverColor: Colors.red[600],
-                      child: Text(
-                        'Start your Income Search',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
                     Container(
+                      margin: EdgeInsets.all(20),
                       width: 300,
                       child: RaisedButton(
                         onPressed: () {
                           clickNext(context);
                         },
                         // color: Colors.lightBlue,
-                        // hoverColor: Colors.lightBlue,
+                        hoverColor: Colors.lightBlue,
                         child: Text(
                           'See if I\'m Approved',
                         ),

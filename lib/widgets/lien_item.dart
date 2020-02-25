@@ -20,7 +20,7 @@ Widget buildLienItem(context, String lender, String lienType, String balance, St
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.fromLTRB(40,0,0,0),
+              // padding: EdgeInsets.fromLTRB(40,0,0,0),
               child: Column(
                 children: <Widget>[
                   Row(
