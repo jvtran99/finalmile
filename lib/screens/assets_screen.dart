@@ -411,7 +411,7 @@ class _AssetDetailsState extends State<AssetDetails> {
                   color: Colors.lightBlue,
                   // hoverColor: Colors.lightBlue,
                   child: Text(
-                    'CONNECT', 
+                    'CONNECT', style: TextStyle(color: Colors.white) 
                     // style: TextStyle(color: Colors.white
                     // ),
                   ),
