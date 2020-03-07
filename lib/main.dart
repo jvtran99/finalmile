@@ -21,6 +21,7 @@ import './screens/underwriting_screen.dart';
 import './screens/underwriting_analyze_screen.dart';
 import './screens/loan_conditions.dart';
 import './screens/bottomsheetexample.dart';
+import './widgets/change_button.dart';
 
 void main() => runApp(MyApp());
 
@@ -66,7 +67,7 @@ class MyApp extends StatelessWidget {
       // home: RatesScreen(),
       routes: {
         '/': (ctx) => RatesScreenRd(),
-        // '/': (ctx) => HomeView(),
+        // '/': (ctx) => ChangeButton(),
         RatesScreenRd.routeName: (ctx) => RatesScreenRd(),
         SignIn.routeName: (ctx) => SignIn(),
         SelectLien.routeName: (ctx) => SelectLien(),

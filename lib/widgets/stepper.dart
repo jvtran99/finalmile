@@ -63,17 +63,17 @@ class _StepperWidgetState extends State<StepperWidget> {
       Step(
         title: Text('Assets'),
         content: TextField(),
-        isActive: _currentStep >= 2,
+        isActive: _currentStep >= 3,
       ),
       Step(
         title: Text('Property'),
         content: TextField(),
-        isActive: _currentStep >= 2,
+        isActive: _currentStep >= 4,
       ),
       Step(
         title: Text('Underwriting Decision'),
         content: TextField(),
-        isActive: _currentStep >= 2,
+        isActive: _currentStep >= 5,
       )
     ];
     return _steps;

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import './checkbox.dart';
 import '../screens/recommendations_screen.dart';
+import '../widgets/change_button.dart';
+import '../widgets/change_button_no.dart';
 
-Widget buildLienItem(context, String lender, String lienType, String balance, String monthlyPayment) {
+Widget buildLienItem(context, String lender, String lienType, String balance,
+    String monthlyPayment) {
   void propertyInput(BuildContext ctx) {
     Navigator.of(ctx).pushReplacementNamed(
       Recommendations.routeName,
@@ -157,25 +160,30 @@ Widget buildLienItem(context, String lender, String lienType, String balance, St
                 color: Theme.of(context).primaryColorLight,
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                FlatButton(
-                  color: Colors.lightBlue,
-                  onPressed: () {},
-                  child: Text(
-                    'YES',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                FlatButton(
-                  color: Colors.lightBlue,
-                  onPressed: () {},
-                  child: Text(
-                    'NO',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+                ChangeButton(),
+                ChangeButtonNo(),
+                // FlatButton(
+                //   color: Colors.lightBlue,
+                //   onPressed: () {},
+                //   child: Text(
+                //     'YES',
+                //     style: TextStyle(color: Colors.white),
+                //   ),
+                // ),
+                // FlatButton(
+                //   color: Colors.lightBlue,
+                //   onPressed: () {},
+                //   child: Text(
+                //     'NO',
+                //     style: TextStyle(color: Colors.white),
+                //   ),
+                // ),
               ],
             ),
             Row(

@@ -391,7 +391,7 @@ class RateViewDetails extends StatelessWidget {
                 SizedBox(
                   width: 50,
                 ),
-                Expanded(flex: 1, child: Text('TDB', style: contentTextStyle)),
+                Expanded(flex: 1, child: Text('TBD', style: contentTextStyle)),
               ],
             ),
               _buildSeparationLine(),
@@ -410,6 +410,49 @@ class RateViewDetails extends StatelessWidget {
                 Expanded(flex: 1, child: Text('\$0', style: contentTextStyle)),
               ],
             ),
+          SizedBox(height: 20),
+          Row(
+              children: <Widget>[
+                Expanded(
+                    flex: 4,
+                    child: Text('Subtotal'.toUpperCase(),
+                        style: titleTextStyle)),
+                SizedBox(
+                  width: 50,
+                ),
+                Expanded(
+                    flex: 1, child: Text('\$3064', style: contentTextStyle)),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                    flex: 4,
+                    child: Text('Adjustments and Credits'.toUpperCase(),
+                        style: titleTextStyle)),
+                SizedBox(
+                  width: 50,
+                ),
+                Expanded(
+                    flex: 1, child: Text('\$1100', style: contentTextStyle)),
+              ],
+            ),
+            _buildSeparationLine(),
+            Row(
+              children: <Widget>[
+                Expanded(
+                    flex: 4,
+                    child: Text('Total'.toUpperCase(),
+                        style: titleTextStyle)),
+                SizedBox(
+                  width: 50,
+                ),
+                Expanded(
+                    flex: 1, child: Text('\$1964', style: contentTextStyle)),
+              ],
+            ),
+            
+          
           ],
         ),
         alignment: Alignment.bottomRight,

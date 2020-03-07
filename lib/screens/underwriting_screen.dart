@@ -1,3 +1,4 @@
+import 'package:certainty/widgets/change_button.dart';
 import 'package:flutter/material.dart';
 
 import './credit_report_screen.dart';
@@ -296,51 +297,18 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                     // SizedBox(height: 30),
                     Container(
                         width: 300,
-                        child: RaisedButton(
+                        child: MaterialButton(
                           onPressed: () {
                             clickNext(context);
                           },
-                          // color: Colors.lightBlue,
-                          hoverColor: Colors.lightBlue,
+                          color: Colors.lightBlue,
+                          hoverColor: Colors.red,
                           child: Text(
                             'See if I\'m Approved',
                           ),
                         ),
                       ),
-                    // Align(
-                    //   alignment: Alignment.bottomRight,
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.end,
-                    //     children: <Widget>[
-                    //       Spacer(),
-                    //       FlatButton(
-                    //         onPressed: () {
-                    //           clickNext(context);
-                    //           print(Text('Next button hit'));
-                    //         },
-                    //         child: Row(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           mainAxisSize: MainAxisSize.min,
-                    //           children: <Widget>[
-                    //             Text(
-                    //               'Next',
-                    //               style: TextStyle(
-                    //                 color: Colors.cyan[700],
-                    //                 fontSize: 20.0,
-                    //               ),
-                    //             ),
-                    //             SizedBox(width: 10.0),
-                    //             Icon(
-                    //               Icons.arrow_forward,
-                    //               color: Colors.cyan[700],
-                    //               size: 20.0,
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
+                    ChangeButton(),
                   ],
                 ),
               ),
