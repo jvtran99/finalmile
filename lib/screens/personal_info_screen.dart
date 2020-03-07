@@ -89,7 +89,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           child: TextField(
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
-                                hintText: 'First Name'),
+                                hintText: 'First Name*'),
                           ),
                         ),
                         Container(
@@ -97,7 +97,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           child: TextField(
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
-                                hintText: 'Last Name'),
+                                hintText: 'Last Name*'),
                           ),
                         ),
                         Container(
@@ -105,7 +105,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           child: TextField(
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
-                                hintText: 'Social Security Number'),
+                                hintText: 'Social Security Number*'),
                           ),
                         ),
                         Container(
@@ -113,7 +113,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           child: TextField(
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
-                                hintText: 'Email Address'),
+                                hintText: 'Email Address*'),
                           ),
                         ),
                         SizedBox(height: 10),
@@ -124,7 +124,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             CheckBoxWidget(),
                             Expanded(
                               child: Text(
-                                "I agree that my data can be used for the purposes noted below ",
+                                "I agree that my data can be used for the purposes noted below*",
                                 style: TextStyle(fontSize: 16),
                               ),
                             ),
@@ -230,7 +230,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       child: TextField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            hintText: 'First Name'),
+                            hintText: 'First Name*'),
                       ),
                     ),
                     Container(
@@ -238,7 +238,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       child: TextField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            hintText: 'Last Name'),
+                            hintText: 'Last Name*'),
                       ),
                     ),
                     Container(
@@ -246,7 +246,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       child: TextField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            hintText: 'Social Security Number'),
+                            hintText: 'Social Security Number*'),
                       ),
                     ),
                     Container(
@@ -254,7 +254,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       child: TextField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            hintText: 'Email Address'),
+                            hintText: 'Email Address*'),
                       ),
                     ),
 
@@ -266,7 +266,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         CheckBoxWidget(),
                         Expanded(
                           child: Text(
-                            "I agree that my data can be used for the purposes noted below ",
+                            "I agree that my data can be used for the purposes noted below*",
                             style: TextStyle(fontSize: 16),
                           ),
                         ),
