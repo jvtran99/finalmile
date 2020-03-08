@@ -235,7 +235,7 @@ class _CreditReportState extends State<CreditReport> {
                       height: 6,
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
+                      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                       color: Colors.grey[200],
                       child: Column(
                         children: <Widget>[
