@@ -42,7 +42,7 @@ class _RecommendationsState extends State<Recommendations> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       IncomeEmployment.routeName,
     );
   }

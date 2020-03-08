@@ -164,10 +164,10 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                           onPressed: () {
                             clickNext(context);
                           },
-                          // color: Colors.lightBlue,
-                          hoverColor: Colors.lightBlue,
+                          color: Colors.lightBlue,
+                          // hoverColor: Colors.lightBlue,
                           child: Text(
-                            'See if I\'m Approved',
+                            'See if I\'m Approved', style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ),

@@ -36,7 +36,7 @@ class _IncomeEmploymentState extends State<IncomeEmployment> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       AssetDetails.routeName,
     );
   }

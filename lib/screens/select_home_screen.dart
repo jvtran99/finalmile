@@ -35,7 +35,7 @@ class _SelectHomeState extends State<SelectHome> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       SelectLien.routeName,
     );
   }
