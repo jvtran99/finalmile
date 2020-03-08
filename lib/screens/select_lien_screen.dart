@@ -36,7 +36,7 @@ class _SelectLienState extends State<SelectLien> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       Recommendations.routeName,
     );
   }

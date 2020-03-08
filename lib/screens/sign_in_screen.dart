@@ -29,11 +29,12 @@ class SignIn extends StatelessWidget {
               // color: Colors.red,
               height: 300,
               child: Center(
-                child: Text('Logo')
-                // Image.asset(
-                  // 'assets/images/Chase_logo_2007.png',
-                  // fit: BoxFit.cover,
-                // ),
+                child: 
+                // Text('Logo')
+                Image.network(
+                  'https://www.underconsideration.com/brandnew/archives/bank_of_america_logo_stacked_a.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Text(

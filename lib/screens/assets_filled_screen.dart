@@ -37,7 +37,7 @@ class _AssetDetailsFilledState extends State<AssetDetailsFilled> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       CreditReport.routeName,
     );
   }
@@ -284,7 +284,7 @@ class _AssetDetailsFilledState extends State<AssetDetailsFilled> {
                         Container(
                           width: 300,
                           child: RaisedButton(
-                            onPressed: _showModalSheetSm,
+                            onPressed: _showModalSheet,
                             // color: Colors.lightBlue,
                             hoverColor: Colors.lightBlue,
                             child: Text(

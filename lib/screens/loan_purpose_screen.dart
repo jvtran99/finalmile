@@ -38,7 +38,7 @@ class _LoanPurposeState extends State<LoanPurpose> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       SelectHome.routeName,
     );
   }

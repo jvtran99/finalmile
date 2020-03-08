@@ -35,7 +35,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   }
 
   void clickNext(BuildContext ctx) {
-    Navigator.of(ctx).pushReplacementNamed(
+    Navigator.of(ctx).pushNamed(
       LoanPurpose.routeName,
     );
   }
