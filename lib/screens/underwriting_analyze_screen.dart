@@ -140,18 +140,18 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
 
   Widget _smallDisplay() {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      // height: MediaQuery.of(context).size.height,
       child: Center(
-        child: SingleChildScrollView(
+        // child: SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height,
+            // height: MediaQuery.of(context).size.height,
             alignment: Alignment.topCenter,
             width: 500,
-            child: SingleChildScrollView(
+            // child: SingleChildScrollView(
               child: Container(
                 color: Colors.grey[50],
                 margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
                 // child: Column(
                 //   children: <Widget>[
                 //     Container(
@@ -235,7 +235,7 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                             child: Row(
                               children: <Widget>[
                                 Animator(
-                                  duration: Duration(milliseconds: 800),
+                                  duration: Duration(milliseconds: 700),
                                   repeats: 8,
                                   builder: (anim) => FadeTransition(
                                     opacity: anim,
@@ -259,8 +259,8 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                             child: Row(
                               children: <Widget>[
                                 Animator(
-                                  duration: Duration(milliseconds: 800),
-                                  repeats: 12,
+                                  duration: Duration(milliseconds: 750),
+                                  repeats: 11,
                                   builder: (anim) => FadeTransition(
                                     opacity: anim,
                                     child: Icon(
@@ -283,8 +283,8 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                             child: Row(
                               children: <Widget>[
                                 Animator(
-                                  duration: Duration(milliseconds: 800),
-                                  repeats: 15,
+                                  duration: Duration(milliseconds: 775),
+                                  repeats: 14,
                                   builder: (anim) => FadeTransition(
                                     opacity: anim,
                                     child: Icon(
@@ -326,45 +326,50 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                               ],
                             ),
                           ),
+                         
                           // Align(
                           //   alignment: Alignment.bottomRight,
                           //   child:
-                          Animator(
-                            duration: Duration(seconds: 20),
-                            repeats: 1,
-                            builder: (anim) => FadeTransition(
-                              opacity: anim,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: <Widget>[
-                                  Spacer(),
-                                  FlatButton(
-                                    onPressed: () {
-                                      clickNext(context);
-                                      print(Text('Next button hit'));
-                                    },
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Text(
-                                          'Next',
-                                          style: TextStyle(
-                                            color: Colors.cyan[700],
-                                            fontSize: 20.0,
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                            child: 
+                            Animator(
+                              duration: Duration(seconds: 24),
+                              repeats: 1,
+                              builder: (anim) => FadeTransition(
+                                opacity: anim,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Spacer(),
+                                    FlatButton(
+                                      onPressed: () {
+                                        clickNext(context);
+                                        print(Text('Next button hit'));
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Text(
+                                            'Next',
+                                            style: TextStyle(
+                                              color: Colors.cyan[700],
+                                              fontSize: 20.0,
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(width: 10.0),
-                                        Icon(
-                                          Icons.arrow_forward,
-                                          color: Colors.cyan[700],
-                                          size: 20.0,
-                                        ),
-                                      ],
+                                          SizedBox(width: 10.0),
+                                          Icon(
+                                            Icons.arrow_forward,
+                                            color: Colors.cyan[700],
+                                            size: 20.0,
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -375,8 +380,8 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
               ),
             ),
           ),
-        ),
-      ),
+        // ),
+      // ),
     );
   }
 
