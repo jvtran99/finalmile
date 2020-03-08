@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animator/animator.dart';
 
 import './underwriting_screen.dart';
 import '../widgets/menu.dart';
@@ -122,7 +123,6 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
                           //     ),
                           //   ),
                           // )
-                        
                         ],
                       )),
                 ),
@@ -149,65 +149,230 @@ class _AnalyzingLoanState extends State<AnalyzingLoan> {
             width: 500,
             child: SingleChildScrollView(
               child: Container(
-                  color: Colors.grey[50],
-                  margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
-                  padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
-                  child: Column(
+                color: Colors.grey[50],
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
+                padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+                // child: Column(
+                //   children: <Widget>[
+                //     Container(
+                //       child: StepperWidget(),
+                //     ),
+                //     SizedBox(height: 30),
+                //     Container(
+                //       width: 300,
+                //       child: RaisedButton(
+                //         onPressed: () {
+                //           clickNext(context);
+                //         },
+                //         color: Colors.lightBlue,
+                //         // hoverColor: Colors.lightBlue,
+                //         child: Text(
+                //           'See if I\'m Approved', style: TextStyle(color: Colors.white),
+                //         ),
+                //       ),
+                //     ),
+
+                //   ],
+                // )
+
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Container(
-                        child: StepperWidget(),
-                      ),
-                      SizedBox(height: 30),
-                      Container(
-                        width: 300,
-                        child: RaisedButton(
-                          onPressed: () {
-                            clickNext(context);
-                          },
-                          color: Colors.lightBlue,
-                          // hoverColor: Colors.lightBlue,
-                          child: Text(
-                            'See if I\'m Approved', style: TextStyle(color: Colors.white),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Animator(
+                                  duration: Duration(milliseconds: 600),
+                                  repeats: 4,
+                                  builder: (anim) => FadeTransition(
+                                    opacity: anim,
+                                    child: Icon(
+                                      Icons.check_box,
+                                      size: 35,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Identity',
+                                  style: TextStyle(fontSize: 18),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ),
-                      // Align(
-                      //   alignment: Alignment.bottomRight,
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.end,
-                      //     children: <Widget>[
-                      //       Spacer(),
-                      //       FlatButton(
-                      //         onPressed: () {
-                      //           clickNext(context);
-                      //           print(Text('Next button hit'));
-                      //         },
-                      //         child: Row(
-                      //           mainAxisAlignment: MainAxisAlignment.center,
-                      //           mainAxisSize: MainAxisSize.min,
-                      //           children: <Widget>[
-                      //             Text(
-                      //               'Next',
-                      //               style: TextStyle(
-                      //                 color: Colors.cyan[700],
-                      //                 fontSize: 20.0,
-                      //               ),
-                      //             ),
-                      //             SizedBox(width: 10.0),
-                      //             Icon(
-                      //               Icons.arrow_forward,
-                      //               color: Colors.cyan[700],
-                      //               size: 20.0,
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                    
-                    ],
-                  )),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Animator(
+                                  duration: Duration(milliseconds: 700),
+                                  repeats: 6,
+                                  builder: (anim) => FadeTransition(
+                                    opacity: anim,
+                                    child: Icon(
+                                      Icons.check_box,
+                                      size: 35,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Credit',
+                                  style: TextStyle(fontSize: 18),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Animator(
+                                  duration: Duration(milliseconds: 800),
+                                  repeats: 8,
+                                  builder: (anim) => FadeTransition(
+                                    opacity: anim,
+                                    child: Icon(
+                                      Icons.check_box,
+                                      size: 35,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Employment & Income',
+                                  style: TextStyle(fontSize: 18),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Animator(
+                                  duration: Duration(milliseconds: 800),
+                                  repeats: 12,
+                                  builder: (anim) => FadeTransition(
+                                    opacity: anim,
+                                    child: Icon(
+                                      Icons.check_box,
+                                      size: 35,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Assets',
+                                  style: TextStyle(fontSize: 18),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Animator(
+                                  duration: Duration(milliseconds: 800),
+                                  repeats: 15,
+                                  builder: (anim) => FadeTransition(
+                                    opacity: anim,
+                                    child: Icon(
+                                      Icons.check_box,
+                                      size: 35,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Property',
+                                  style: TextStyle(fontSize: 18),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Animator(
+                                  duration: Duration(milliseconds: 800),
+                                  repeats: 18,
+                                  builder: (anim) => FadeTransition(
+                                    opacity: anim,
+                                    child: Icon(
+                                      Icons.check_box,
+                                      size: 35,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Underwriting Decision',
+                                  style: TextStyle(fontSize: 18),
+                                )
+                              ],
+                            ),
+                          ),
+                          // Align(
+                          //   alignment: Alignment.bottomRight,
+                          //   child:
+                          Animator(
+                            duration: Duration(seconds: 20),
+                            repeats: 1,
+                            builder: (anim) => FadeTransition(
+                              opacity: anim,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  Spacer(),
+                                  FlatButton(
+                                    onPressed: () {
+                                      clickNext(context);
+                                      print(Text('Next button hit'));
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        Text(
+                                          'Next',
+                                          style: TextStyle(
+                                            color: Colors.cyan[700],
+                                            fontSize: 20.0,
+                                          ),
+                                        ),
+                                        SizedBox(width: 10.0),
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.cyan[700],
+                                          size: 20.0,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          // ),
+                        ],
+                      )
+                    ]),
+              ),
             ),
           ),
         ),
