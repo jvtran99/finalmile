@@ -145,19 +145,19 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                           // ),
                         ),
                         SizedBox(height: 30),
-                        Container(
-                          width: 300,
-                          child: RaisedButton(
-                            onPressed: () {
-                              clickNext(context);
-                            },
-                            // color: Colors.lightBlue,
-                            hoverColor: Colors.red[600],
-                            child: Text(
-                              'See if I\'m Approved',
-                            ),
+                         Container(
+                        width: 300,
+                        child: MaterialButton(
+                          onPressed: () {
+                            clickNext(context);
+                          },
+                          color: Colors.lightBlue,
+                          // hoverColor: Colors.lightBlue,
+                          child: Text(
+                            'See if I\'m Approved', style: TextStyle(color: Colors.white),
                           ),
                         ),
+                      ),
                         // Expanded(
                         //   child: Align(
                         //     alignment: Alignment.bottomRight,
@@ -294,7 +294,7 @@ class _UnderwritingScreenState extends State<UnderwritingScreen> {
                         ],
                       ),
                     ),
-                    // SizedBox(height: 30),
+                    SizedBox(height: 30),
                     Container(
                         width: 300,
                         child: MaterialButton(
