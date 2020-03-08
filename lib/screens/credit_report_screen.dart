@@ -60,22 +60,22 @@ class _CreditReportState extends State<CreditReport> {
           child: Container(
             child: Container(
               alignment: Alignment.topCenter,
-              child: SingleChildScrollView(
-                child: Container(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height - 40,
-                    width: 700,
-                    color: Colors.grey[50],
-                    padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
-                    child: Column(
+              // child: SingleChildScrollView(
+              // child: Container(
+              // child: SingleChildScrollView(
+              child: Container(
+                // height: MediaQuery.of(context).size.height - 40,
+                width: 700,
+                color: Colors.grey[50],
+                padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        buildSectionTitle(context,
-                            'Order your Credit Report'),
+                        buildSectionTitle(context, 'Order your Credit Report'),
                       ],
                     ),
                     Text(
@@ -87,44 +87,45 @@ class _CreditReportState extends State<CreditReport> {
                     SizedBox(
                       height: 6,
                     ),
-                   Container(
-                    padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
-                    color: Colors.grey[200],
-                    child: Column(
-                      children: <Widget>[
-                        // SizedBox(height: 30),
-                        Text('Please enter  or confirm your Birthdate'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: '04/29/1975'),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
+                      color: Colors.grey[200],
+                      child: Column(
+                        children: <Widget>[
+                          // SizedBox(height: 30),
+                          Text('Please enter  or confirm your Birthdate'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: '04/29/1975'),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Please enter or confirm your Social Security #'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'XXX-XX-0987'),
+                          SizedBox(height: 8),
+                          Text(
+                              'Please enter or confirm your Social Security #'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'XXX-XX-0987'),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Please enter or confirm your Phone#'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: '514-555-3584'),
+                          SizedBox(height: 8),
+                          Text('Please enter or confirm your Phone#'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: '514-555-3584'),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
                     SizedBox(height: 30),
                     Text(
                       "By clicking the button above, you are authorizing Certainty to access your credit report for the purpose of a mortgage inquiry and you acknowledge consent and agree to the terms at the bottom of this page.",
@@ -134,21 +135,21 @@ class _CreditReportState extends State<CreditReport> {
                     // Expanded(
                     //   child:
                     Container(
-                    width: 300,
-                    child: RaisedButton(
-                      onPressed: (){
-                        clickNext(context);
-                      },
-                      color: Colors.lightBlue,
-                      hoverColor: Colors.red[600],
-                      child: Text(
-                        'Order Credit Report',
+                      width: 300,
+                      child: RaisedButton(
+                        onPressed: () {
+                          clickNext(context);
+                        },
+                        color: Colors.lightBlue,
+                        hoverColor: Colors.red[600],
+                        child: Text(
+                          'Order Credit Report',
+                        ),
                       ),
                     ),
-                  ),
-                 
+
                     Expanded(
-                                          child: Align(
+                      child: Align(
                         alignment: Alignment.bottomRight,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -187,11 +188,12 @@ class _CreditReportState extends State<CreditReport> {
                   ],
                 ),
               ),
-                ),
-              ),
             ),
           ),
         ),
+        // ),
+        // ),
+        // ),
         Expanded(
           flex: 1,
           child: Container(),
@@ -220,8 +222,7 @@ class _CreditReportState extends State<CreditReport> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        buildSectionTitle(context,
-                            'Order your Credit Report'),
+                        buildSectionTitle(context, 'Order your Credit Report'),
                       ],
                     ),
                     Text(
@@ -233,44 +234,45 @@ class _CreditReportState extends State<CreditReport> {
                     SizedBox(
                       height: 6,
                     ),
-                   Container(
-                    padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
-                    color: Colors.grey[200],
-                    child: Column(
-                      children: <Widget>[
-                        // SizedBox(height: 30),
-                        Text('Please enter  or confirm your Birthdate'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: '04/29/1975'),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(50, 20, 50, 10),
+                      color: Colors.grey[200],
+                      child: Column(
+                        children: <Widget>[
+                          // SizedBox(height: 30),
+                          Text('Please enter  or confirm your Birthdate'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: '04/29/1975'),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Please enter or confirm your Social Security #'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'XXX-XX-0987'),
+                          SizedBox(height: 8),
+                          Text(
+                              'Please enter or confirm your Social Security #'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'XXX-XX-0987'),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Please enter or confirm your Phone#'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: '514-555-3584'),
+                          SizedBox(height: 8),
+                          Text('Please enter or confirm your Phone#'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: '514-555-3584'),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
                     SizedBox(height: 30),
                     Text(
                       "By clicking the button above, you are authorizing Certainty to access your credit report for the purpose of a mortgage inquiry and you acknowledge consent and agree to the terms at the bottom of this page.",
@@ -280,18 +282,19 @@ class _CreditReportState extends State<CreditReport> {
                     // Expanded(
                     //   child:
                     Container(
-                    width: 300,
-                    child: RaisedButton(
-                      onPressed: (){
-                        clickNext(context);
-                      },
-                      color: Colors.lightBlue,
-                      // hoverColor: Colors.lightBlue,
-                      child: Text(
-                        'Order Credit Report', style: TextStyle(color: Colors.white),
+                      width: 300,
+                      child: RaisedButton(
+                        onPressed: () {
+                          clickNext(context);
+                        },
+                        color: Colors.lightBlue,
+                        // hoverColor: Colors.lightBlue,
+                        child: Text(
+                          'Order Credit Report',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
-                  ),
                     // Align(
                     //   alignment: Alignment.bottomRight,
                     //   child: Row(
