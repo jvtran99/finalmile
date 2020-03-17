@@ -15,20 +15,25 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
-  final _priceFocusNode = FocusNode();
-  final _descriptionFocusNode = FocusNode();
+  final _lastNameFocusNode = FocusNode();
+  final _emailFocusNode = FocusNode();
+  final _socialFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
+  
   var _editedProduct = PersonInfo1(
     id: null,
-    title: '',
+    first: '',
+    last: '',
     description: '',
     price: 0,
+    email: '',
   );
 
   @override
   void dispose() {
-    _priceFocusNode.dispose();
-    _descriptionFocusNode.dispose();
+    _lastNameFocusNode.dispose();
+    _emailFocusNode.dispose();
+    _socialFocusNode.dispose();
     super.dispose();
   }
 
@@ -38,9 +43,11 @@ class _PersonalInfoState extends State<PersonalInfo> {
       return;
     }
     _form.currentState.save();
-    print(_editedProduct.title);
+    print(_editedProduct.first);
+    print(_editedProduct.last);
     print(_editedProduct.price);
     print(_editedProduct.description);
+    print(_editedProduct.email);
   }
 
   Widget buildSectionTitle(BuildContext context, String text) {
@@ -371,7 +378,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           textInputAction: TextInputAction.next,
                           onFieldSubmitted: (_) {
                             FocusScope.of(context)
-                                .requestFocus(_priceFocusNode);
+                                .requestFocus(_lastNameFocusNode);
                           },
                           validator: (value) {
                             if(value.isEmpty) {
@@ -382,44 +389,76 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           onSaved: (value) {
                             _editedProduct = PersonInfo1(
                               id: null,
-                              title: value,
+                              first: value,
+                              last: _editedProduct.last,
                               description: _editedProduct.description,
                               price: _editedProduct.price,
+                              email: _editedProduct.email,
                             );
                           },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Price',
+                            labelText: 'Last Name',
                           ),
                           textInputAction: TextInputAction.next,
-                          keyboardType: TextInputType.number,
-                          focusNode: _priceFocusNode,
                           onFieldSubmitted: (_) {
                             FocusScope.of(context)
-                                .requestFocus(_descriptionFocusNode);
+                                .requestFocus(_socialFocusNode);
+                          },
+                          focusNode: _lastNameFocusNode,
+                          validator: (value) {
+                            if(value.isEmpty) {
+                              return 'Please provide a value.';
+                            }
+                            return null;
                           },
                           onSaved: (value) {
                             _editedProduct = PersonInfo1(
                               id: null,
-                              title: _editedProduct.title,
+                              first: _editedProduct.first,
+                              last: value,
                               description: _editedProduct.description,
-                              price: double.parse(value),
-                            );},
+                              price: _editedProduct.price,
+                              email: _editedProduct.email,
+                            );
+                          },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Decsription',
+                            labelText: 'Social Security Number',
                           ),
-                          maxLines: 3,
-                          keyboardType: TextInputType.multiline,
-                          focusNode: _descriptionFocusNode,
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.number,
+                          focusNode: _socialFocusNode,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context)
+                                .requestFocus(_emailFocusNode);
+                          },
                           onSaved: (value) {
                             _editedProduct = PersonInfo1(
                               id: null,
-                              title: _editedProduct.title,
-                              description: value,
+                              first: _editedProduct.first,
+                              last: _editedProduct.last,
+                              description: _editedProduct.description,
+                              price: double.parse(value),
+                              email: _editedProduct.email,
+                            );},
+                        ),                      
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          focusNode: _emailFocusNode,
+                          onSaved: (value) {
+                            _editedProduct = PersonInfo1(
+                              id: null,
+                              first: _editedProduct.first,
+                              last: _editedProduct.last,
+                              description: _editedProduct.description,
                               price: _editedProduct.price,
+                              email: value,
                             );},
                         ),
                       ],
