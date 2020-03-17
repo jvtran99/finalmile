@@ -5,6 +5,7 @@ import '../widgets/checkbox.dart';
 import './loan_purpose_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
+import '../models/personal_info.dart';
 
 class PersonalInfo extends StatefulWidget {
   static const routeName = '/personal-info';
@@ -14,6 +15,34 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
+  final _priceFocusNode = FocusNode();
+  final _descriptionFocusNode = FocusNode();
+  final _form = GlobalKey<FormState>();
+  var _editedProduct = PersonInfo1(
+    id: null,
+    title: '',
+    description: '',
+    price: 0,
+  );
+
+  @override
+  void dispose() {
+    _priceFocusNode.dispose();
+    _descriptionFocusNode.dispose();
+    super.dispose();
+  }
+
+  void _saveForm() {
+    final isValid = _form.currentState.validate();
+    if (!isValid) {
+      return;
+    }
+    _form.currentState.save();
+    print(_editedProduct.title);
+    print(_editedProduct.price);
+    print(_editedProduct.description);
+  }
+
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       width: double.infinity,
@@ -201,124 +230,257 @@ class _PersonalInfoState extends State<PersonalInfo> {
         ),
       ),
       child: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            alignment: Alignment.topCenter,
-            width: 500,
-            child: SingleChildScrollView(
-              child: Container(
-                color: Colors.grey[50],
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        buildSectionTitle(context,
-                            'Let\'s start with some information about you'),
-                      ],
-                    ),
-                    Text(
-                        'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
-                    SizedBox(
-                      height: 6,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'First Name*'),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Last Name*'),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Social Security Number*'),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Email Address*'),
-                      ),
-                    ),
+        // child: SingleChildScrollView(
+        //   child: Container(
+        //     height: MediaQuery.of(context).size.height,
+        //     alignment: Alignment.topCenter,
+        //     width: 500,
+        //     child: SingleChildScrollView(
+        //       child: Container(
+        //         color: Colors.grey[50],
+        //         padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
+        //         child: Column(
+        //           mainAxisAlignment: MainAxisAlignment.start,
+        //           children: <Widget>[
+        //             Column(
+        //               mainAxisAlignment: MainAxisAlignment.start,
+        //               children: <Widget>[
+        //                 buildSectionTitle(context,
+        //                     'Let\'s start with some information about you'),
+        //               ],
+        //             ),
+        //             Text(
+        //                 'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
+        //             SizedBox(
+        //               height: 6,
+        //             ),
+        //             Container(
+        //               margin: EdgeInsets.symmetric(vertical: 5),
+        //               child: TextField(
+        //                 decoration: InputDecoration(
+        //                     border: OutlineInputBorder(),
+        //                     hintText: 'First Name*'),
+        //               ),
+        //             ),
+        //             Container(
+        //               margin: EdgeInsets.symmetric(vertical: 5),
+        //               child: TextField(
+        //                 decoration: InputDecoration(
+        //                     border: OutlineInputBorder(),
+        //                     hintText: 'Last Name*'),
+        //               ),
+        //             ),
+        //             Container(
+        //               margin: EdgeInsets.symmetric(vertical: 5),
+        //               child: TextField(
+        //                 decoration: InputDecoration(
+        //                     border: OutlineInputBorder(),
+        //                     hintText: 'Social Security Number*'),
+        //               ),
+        //             ),
+        //             Container(
+        //               margin: EdgeInsets.symmetric(vertical: 5),
+        //               child: TextField(
+        //                 decoration: InputDecoration(
+        //                     border: OutlineInputBorder(),
+        //                     hintText: 'Email Address*'),
+        //               ),
+        //             ),
+        //             Divider(),
 
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+        //             Divider(),
+        //             SizedBox(height: 10),
+        //             Row(
+        //               mainAxisAlignment: MainAxisAlignment.start,
+        //               crossAxisAlignment: CrossAxisAlignment.start,
+        //               children: <Widget>[
+        //                 CheckBoxWidget(),
+        //                 Expanded(
+        //                   child: Text(
+        //                     "I agree that my data can be used for the purposes noted below*",
+        //                     style: TextStyle(fontSize: 16),
+        //                   ),
+        //                 ),
+        //               ],
+        //             ),
+        //             SizedBox(height: 10),
+        //             Text(
+        //               "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+        //               style: TextStyle(fontSize: 12),
+        //             ),
+        //             SizedBox(height: 30),
+        //             // Expanded(
+        //             //   child:
+        //             Align(
+        //               alignment: Alignment.bottomRight,
+        //               child: Row(
+        //                 mainAxisAlignment: MainAxisAlignment.end,
+        //                 children: <Widget>[
+        //                   Spacer(),
+        //                   FlatButton(
+        //                     onPressed: () {
+        //                       clickNext(context);
+        //                       print(Text('Next button hit'));
+        //                     },
+        //                     child: Row(
+        //                       mainAxisAlignment: MainAxisAlignment.center,
+        //                       mainAxisSize: MainAxisSize.min,
+        //                       children: <Widget>[
+        //                         Text(
+        //                           'Next',
+        //                           style: TextStyle(
+        //                             color: Colors.cyan[700],
+        //                             fontSize: 20.0,
+        //                           ),
+        //                         ),
+        //                         SizedBox(width: 10.0),
+        //                         Icon(
+        //                           Icons.arrow_forward,
+        //                           color: Colors.cyan[700],
+        //                           size: 20.0,
+        //                         ),
+        //                       ],
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //               //   ),
+        //             ),
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+        child: Container(
+          color: Colors.grey[50],
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Form(
+                    key: _form,
+                    child: ListView(
                       children: <Widget>[
-                        CheckBoxWidget(),
-                        Expanded(
-                          child: Text(
-                            "I agree that my data can be used for the purposes noted below*",
-                            style: TextStyle(fontSize: 16),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'First Name',
                           ),
+                          textInputAction: TextInputAction.next,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context)
+                                .requestFocus(_priceFocusNode);
+                          },
+                          validator: (value) {
+                            if(value.isEmpty) {
+                              return 'Please provide a value.';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _editedProduct = PersonInfo1(
+                              id: null,
+                              title: value,
+                              description: _editedProduct.description,
+                              price: _editedProduct.price,
+                            );
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Price',
+                          ),
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.number,
+                          focusNode: _priceFocusNode,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context)
+                                .requestFocus(_descriptionFocusNode);
+                          },
+                          onSaved: (value) {
+                            _editedProduct = PersonInfo1(
+                              id: null,
+                              title: _editedProduct.title,
+                              description: _editedProduct.description,
+                              price: double.parse(value),
+                            );},
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Decsription',
+                          ),
+                          maxLines: 3,
+                          keyboardType: TextInputType.multiline,
+                          focusNode: _descriptionFocusNode,
+                          onSaved: (value) {
+                            _editedProduct = PersonInfo1(
+                              id: null,
+                              title: _editedProduct.title,
+                              description: value,
+                              price: _editedProduct.price,
+                            );},
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    SizedBox(height: 30),
-                    // Expanded(
-                    //   child:
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Spacer(),
-                          FlatButton(
-                            onPressed: () {
-                              clickNext(context);
-                              print(Text('Next button hit'));
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                Text(
-                                  'Next',
-                                  style: TextStyle(
-                                    color: Colors.cyan[700],
-                                    fontSize: 20.0,
-                                  ),
-                                ),
-                                SizedBox(width: 10.0),
-                                Icon(
-                                  Icons.arrow_forward,
-                                  color: Colors.cyan[700],
-                                  size: 20.0,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      //   ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  FlatButton(
+                    onPressed: _saveForm,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          'Submit',
+                          style: TextStyle(
+                            color: Colors.cyan[700],
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        SizedBox(width: 10.0),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.cyan[700],
+                          size: 20.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  FlatButton(
+                    onPressed: () {
+                      clickNext(context);
+                      print(Text('Next button hit'));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          'Next',
+                          style: TextStyle(
+                            color: Colors.cyan[700],
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        SizedBox(width: 10.0),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.cyan[700],
+                          size: 20.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
