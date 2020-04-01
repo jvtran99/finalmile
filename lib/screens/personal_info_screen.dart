@@ -19,7 +19,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   final _emailFocusNode = FocusNode();
   final _socialFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
-  
+
   var _editedProduct = PersonInfo1(
     id: null,
     first: '',
@@ -48,6 +48,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
     print(_editedProduct.price);
     print(_editedProduct.description);
     print(_editedProduct.email);
+    clickNext(context);
   }
 
   Widget buildSectionTitle(BuildContext context, String text) {
@@ -105,110 +106,242 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     // color: Colors.grey[50],
                     color: Colors.grey[50],
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            buildSectionTitle(context,
-                                'Let\'s start with some information about you'),
-                          ],
-                        ),
-                        Text(
-                            'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'First Name*'),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              buildSectionTitle(context,
+                                  'Let\'s start with some information about you'),
+                            ],
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Last Name*'),
+                          Text(
+                              'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
+                          SizedBox(
+                            height: 6,
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Social Security Number*'),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Email Address*'),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            CheckBoxWidget(),
-                            Expanded(
-                              child: Text(
-                                "I agree that my data can be used for the purposes noted below*",
-                                style: TextStyle(fontSize: 16),
+                          Form(
+                            key: _form,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 5),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        labelText: 'First Name',
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      onFieldSubmitted: (_) {
+                                        FocusScope.of(context)
+                                            .requestFocus(_lastNameFocusNode);
+                                      },
+                                      validator: (value) {
+                                        if (value.isEmpty) {
+                                          return 'Please provide a value.';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (value) {
+                                        _editedProduct = PersonInfo1(
+                                          id: null,
+                                          first: value,
+                                          last: _editedProduct.last,
+                                          description:
+                                              _editedProduct.description,
+                                          price: _editedProduct.price,
+                                          email: _editedProduct.email,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 5),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        labelText: 'Last Name',
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      onFieldSubmitted: (_) {
+                                        FocusScope.of(context)
+                                            .requestFocus(_socialFocusNode);
+                                      },
+                                      focusNode: _lastNameFocusNode,
+                                      validator: (value) {
+                                        if (value.isEmpty) {
+                                          return 'Please provide a value.';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (value) {
+                                        _editedProduct = PersonInfo1(
+                                          id: null,
+                                          first: _editedProduct.first,
+                                          last: value,
+                                          description:
+                                              _editedProduct.description,
+                                          price: _editedProduct.price,
+                                          email: _editedProduct.email,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 5),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        labelText: 'Social Security Number',
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      keyboardType: TextInputType.number,
+                                      focusNode: _socialFocusNode,
+                                      onFieldSubmitted: (_) {
+                                        FocusScope.of(context)
+                                            .requestFocus(_emailFocusNode);
+                                      },
+                                      validator: (value) {
+                                        if (value.isEmpty) {
+                                          return 'Please enter a value';
+                                        }
+                                        if (value.length < 9 &&
+                                            value.length > 0) {
+                                          return 'Social must have nine digits, no spaces or dashes';
+                                        }
+                                        if (double.tryParse(value) == null) {
+                                          return 'Please enter a valid social. 601 00 0000';
+                                        }
+                                      },
+                                      onSaved: (value) {
+                                        _editedProduct = PersonInfo1(
+                                          id: null,
+                                          first: _editedProduct.first,
+                                          last: _editedProduct.last,
+                                          description:
+                                              _editedProduct.description,
+                                          price: double.parse(value),
+                                          email: _editedProduct.email,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 5),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        labelText: 'Email',
+                                      ),
+                                      keyboardType: TextInputType.emailAddress,
+                                      focusNode: _emailFocusNode,
+                                      validator: (value) {
+                                        if (value.isEmpty) {
+                                          return 'Please enter an email address.';
+                                        }
+                                        if (!value.endsWith('.com') &&
+                                            !value.endsWith('.org')) {
+                                          return 'Please enter a valid email address.';
+                                        }
+                                        if (!value.contains('@')) {
+                                          return 'Please enter a valid @ email address.';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (value) {
+                                        _editedProduct = PersonInfo1(
+                                          id: null,
+                                          first: _editedProduct.first,
+                                          last: _editedProduct.last,
+                                          description:
+                                              _editedProduct.description,
+                                          price: _editedProduct.price,
+                                          email: value,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(height: 30),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Spacer(),
-                                FlatButton(
-                                  onPressed: () {
-                                    clickNext(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        'Next',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.0),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.cyan[700],
-                                        size: 20.0,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
-                        ),
-                      ],
+                          // ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              CheckBoxWidget(),
+                              Expanded(
+                                child: Text(
+                                  "I agree that my data can be used for the purposes noted below*",
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              FlatButton(
+                                onPressed: _saveForm,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Text(
+                                      'Submit',
+                                      style: TextStyle(
+                                        color: Colors.cyan[700],
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.cyan[700],
+                                      size: 20.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              FlatButton(
+                                onPressed: () {
+                                  clickNext(context);
+                                  print(Text('Next button hit'));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Text(
+                                      'Next',
+                                      style: TextStyle(
+                                        color: Colors.cyan[700],
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.0),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.cyan[700],
+                                      size: 20.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -237,289 +370,242 @@ class _PersonalInfoState extends State<PersonalInfo> {
         ),
       ),
       child: Center(
-        // child: SingleChildScrollView(
-        //   child: Container(
-        //     height: MediaQuery.of(context).size.height,
-        //     alignment: Alignment.topCenter,
-        //     width: 500,
-        //     child: SingleChildScrollView(
-        //       child: Container(
-        //         color: Colors.grey[50],
-        //         padding: EdgeInsets.fromLTRB(30, 10, 30, 30),
-        //         child: Column(
-        //           mainAxisAlignment: MainAxisAlignment.start,
-        //           children: <Widget>[
-        //             Column(
-        //               mainAxisAlignment: MainAxisAlignment.start,
-        //               children: <Widget>[
-        //                 buildSectionTitle(context,
-        //                     'Let\'s start with some information about you'),
-        //               ],
-        //             ),
-        //             Text(
-        //                 'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
-        //             SizedBox(
-        //               height: 6,
-        //             ),
-        //             Container(
-        //               margin: EdgeInsets.symmetric(vertical: 5),
-        //               child: TextField(
-        //                 decoration: InputDecoration(
-        //                     border: OutlineInputBorder(),
-        //                     hintText: 'First Name*'),
-        //               ),
-        //             ),
-        //             Container(
-        //               margin: EdgeInsets.symmetric(vertical: 5),
-        //               child: TextField(
-        //                 decoration: InputDecoration(
-        //                     border: OutlineInputBorder(),
-        //                     hintText: 'Last Name*'),
-        //               ),
-        //             ),
-        //             Container(
-        //               margin: EdgeInsets.symmetric(vertical: 5),
-        //               child: TextField(
-        //                 decoration: InputDecoration(
-        //                     border: OutlineInputBorder(),
-        //                     hintText: 'Social Security Number*'),
-        //               ),
-        //             ),
-        //             Container(
-        //               margin: EdgeInsets.symmetric(vertical: 5),
-        //               child: TextField(
-        //                 decoration: InputDecoration(
-        //                     border: OutlineInputBorder(),
-        //                     hintText: 'Email Address*'),
-        //               ),
-        //             ),
-        //             Divider(),
-
-        //             Divider(),
-        //             SizedBox(height: 10),
-        //             Row(
-        //               mainAxisAlignment: MainAxisAlignment.start,
-        //               crossAxisAlignment: CrossAxisAlignment.start,
-        //               children: <Widget>[
-        //                 CheckBoxWidget(),
-        //                 Expanded(
-        //                   child: Text(
-        //                     "I agree that my data can be used for the purposes noted below*",
-        //                     style: TextStyle(fontSize: 16),
-        //                   ),
-        //                 ),
-        //               ],
-        //             ),
-        //             SizedBox(height: 10),
-        //             Text(
-        //               "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
-        //               style: TextStyle(fontSize: 12),
-        //             ),
-        //             SizedBox(height: 30),
-        //             // Expanded(
-        //             //   child:
-        //             Align(
-        //               alignment: Alignment.bottomRight,
-        //               child: Row(
-        //                 mainAxisAlignment: MainAxisAlignment.end,
-        //                 children: <Widget>[
-        //                   Spacer(),
-        //                   FlatButton(
-        //                     onPressed: () {
-        //                       clickNext(context);
-        //                       print(Text('Next button hit'));
-        //                     },
-        //                     child: Row(
-        //                       mainAxisAlignment: MainAxisAlignment.center,
-        //                       mainAxisSize: MainAxisSize.min,
-        //                       children: <Widget>[
-        //                         Text(
-        //                           'Next',
-        //                           style: TextStyle(
-        //                             color: Colors.cyan[700],
-        //                             fontSize: 20.0,
-        //                           ),
-        //                         ),
-        //                         SizedBox(width: 10.0),
-        //                         Icon(
-        //                           Icons.arrow_forward,
-        //                           color: Colors.cyan[700],
-        //                           size: 20.0,
-        //                         ),
-        //                       ],
-        //                     ),
-        //                   ),
-        //                 ],
-        //               ),
-        //               //   ),
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-
         child: Container(
+          alignment: Alignment.topCenter,
+          padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
           color: Colors.grey[50],
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Form(
-                    key: _form,
-                    child: ListView(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    buildSectionTitle(context,
+                        'Let\'s start with some information about you'),
+                  ],
+                ),
+                Text(
+                    'By providing this information, it allows us to gather details about your credit worthiness, share your credit score, and provide us with the information needed to give you an accurate quote'),
+                SizedBox(
+                  height: 6,
+                ),
+                Form(
+                  key: _form,
+                  child: SingleChildScrollView(
+                    child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: 'First Name',
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'First Name',
+                            ),
+                            textInputAction: TextInputAction.next,
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context)
+                                  .requestFocus(_lastNameFocusNode);
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please provide a first name.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: value,
+                                last: _editedProduct.last,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: _editedProduct.email,
+                              );
+                            },
                           ),
-                          textInputAction: TextInputAction.next,
-                          onFieldSubmitted: (_) {
-                            FocusScope.of(context)
-                                .requestFocus(_lastNameFocusNode);
-                          },
-                          validator: (value) {
-                            if(value.isEmpty) {
-                              return 'Please provide a value.';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _editedProduct = PersonInfo1(
-                              id: null,
-                              first: value,
-                              last: _editedProduct.last,
-                              description: _editedProduct.description,
-                              price: _editedProduct.price,
-                              email: _editedProduct.email,
-                            );
-                          },
                         ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: 'Last Name',
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Last Name',
+                            ),
+                            textInputAction: TextInputAction.next,
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context)
+                                  .requestFocus(_socialFocusNode);
+                            },
+                            focusNode: _lastNameFocusNode,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please provide a value.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: _editedProduct.first,
+                                last: value,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: _editedProduct.email,
+                              );
+                            },
                           ),
-                          textInputAction: TextInputAction.next,
-                          onFieldSubmitted: (_) {
-                            FocusScope.of(context)
-                                .requestFocus(_socialFocusNode);
-                          },
-                          focusNode: _lastNameFocusNode,
-                          validator: (value) {
-                            if(value.isEmpty) {
-                              return 'Please provide a value.';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _editedProduct = PersonInfo1(
-                              id: null,
-                              first: _editedProduct.first,
-                              last: value,
-                              description: _editedProduct.description,
-                              price: _editedProduct.price,
-                              email: _editedProduct.email,
-                            );
-                          },
                         ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: 'Social Security Number',
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Social Security Number',
+                            ),
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.number,
+                            focusNode: _socialFocusNode,
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context)
+                                  .requestFocus(_emailFocusNode);
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please enter a value';
+                              }
+                              if (value.length < 9 && value.length > 0) {
+                                return 'Social must have nine digits, no spaces or dashes';
+                              }
+                              if (double.tryParse(value) == null) {
+                                return 'Please enter a valid social. 601 00 0000';
+                              }
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: _editedProduct.first,
+                                last: _editedProduct.last,
+                                description: _editedProduct.description,
+                                price: double.parse(value),
+                                email: _editedProduct.email,
+                              );
+                            },
                           ),
-                          textInputAction: TextInputAction.next,
-                          keyboardType: TextInputType.number,
-                          focusNode: _socialFocusNode,
-                          onFieldSubmitted: (_) {
-                            FocusScope.of(context)
-                                .requestFocus(_emailFocusNode);
-                          },
-                          onSaved: (value) {
-                            _editedProduct = PersonInfo1(
-                              id: null,
-                              first: _editedProduct.first,
-                              last: _editedProduct.last,
-                              description: _editedProduct.description,
-                              price: double.parse(value),
-                              email: _editedProduct.email,
-                            );},
-                        ),                      
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: 'Email',
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Email',
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            focusNode: _emailFocusNode,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please enter an email address.';
+                              }
+                              if (!value.endsWith('.com') &&
+                                  !value.endsWith('.org')) {
+                                return 'Please enter a valid email address.';
+                              }
+                              if (!value.contains('@')) {
+                                return 'Please enter a valid @ email address.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: _editedProduct.first,
+                                last: _editedProduct.last,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: value,
+                              );
+                            },
                           ),
-                          keyboardType: TextInputType.emailAddress,
-                          focusNode: _emailFocusNode,
-                          onSaved: (value) {
-                            _editedProduct = PersonInfo1(
-                              id: null,
-                              first: _editedProduct.first,
-                              last: _editedProduct.last,
-                              description: _editedProduct.description,
-                              price: _editedProduct.price,
-                              email: value,
-                            );},
                         ),
                       ],
                     ),
                   ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  FlatButton(
-                    onPressed: _saveForm,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(
-                          'Submit',
-                          style: TextStyle(
-                            color: Colors.cyan[700],
-                            fontSize: 20.0,
-                          ),
-                        ),
-                        SizedBox(width: 10.0),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.cyan[700],
-                          size: 20.0,
-                        ),
-                      ],
+                // ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    CheckBoxWidget(),
+                    Expanded(
+                      child: Text(
+                        "I agree that my data can be used for the purposes noted below*",
+                        style: TextStyle(fontSize: 16),
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  FlatButton(
-                    onPressed: () {
-                      clickNext(context);
-                      print(Text('Next button hit'));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(
-                          'Next',
-                          style: TextStyle(
-                            color: Colors.cyan[700],
-                            fontSize: 20.0,
+                  ],
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "By checking the box, you agree that we can share your personal data with third parties such as mortgage providers, service partners and other affiliates, so these parties can use your data to improve your experience.  You agree that our trusted partners have permission to share your identity, credit, income, employment, and asset information with Early Mortgage.  You authorize Early Mortgage to redirect you to our partners' secure website if necessary.  Your information is subject to the Terms of Use and Privacy Policy of Certainty.",
+                  style: TextStyle(fontSize: 12),
+                ),
+                // Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: _saveForm,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(
+                            'Submit',
+                            style: TextStyle(
+                              color: Colors.cyan[700],
+                              fontSize: 20.0,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 10.0),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.cyan[700],
-                          size: 20.0,
-                        ),
-                      ],
+                          SizedBox(width: 10.0),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: Colors.cyan[700],
+                            size: 20.0,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Spacer(),
+                    FlatButton(
+                      onPressed: () {
+                        clickNext(context);
+                        print(Text('Next button hit'));
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(
+                            'Next',
+                            style: TextStyle(
+                              color: Colors.cyan[700],
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          SizedBox(width: 10.0),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: Colors.cyan[700],
+                            size: 20.0,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
