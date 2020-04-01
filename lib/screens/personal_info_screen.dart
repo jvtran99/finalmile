@@ -408,7 +408,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             },
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please provide a value.';
+                                return 'Please provide a first name.';
                               }
                               return null;
                             },
