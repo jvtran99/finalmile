@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import './rates_screen.dart';
 import '../widgets/checkbox.dart';
@@ -6,6 +7,7 @@ import './loan_purpose_screen.dart';
 import '../widgets/menu.dart';
 import '../widgets/appbar.dart';
 import '../models/personal_info.dart';
+import '../providers/person_provider.dart';
 
 class PersonalInfo extends StatefulWidget {
   static const routeName = '/personal-info';
@@ -27,6 +29,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
     description: '',
     price: 0,
     email: '',
+    social: '',
   );
 
   @override
@@ -43,11 +46,14 @@ class _PersonalInfoState extends State<PersonalInfo> {
       return;
     }
     _form.currentState.save();
+    
     print(_editedProduct.first);
     print(_editedProduct.last);
     print(_editedProduct.price);
     print(_editedProduct.description);
     print(_editedProduct.email);
+    print(_editedProduct.social);
+    Provider.of<PersonProvider>(context, listen: false).addPersonProvider(_editedProduct);
     clickNext(context);
   }
 
@@ -122,152 +128,156 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             height: 6,
                           ),
                           Form(
-                            key: _form,
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    margin: EdgeInsets.symmetric(vertical: 5),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'First Name',
-                                      ),
-                                      textInputAction: TextInputAction.next,
-                                      onFieldSubmitted: (_) {
-                                        FocusScope.of(context)
-                                            .requestFocus(_lastNameFocusNode);
-                                      },
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Please provide a value.';
-                                        }
-                                        return null;
-                                      },
-                                      onSaved: (value) {
-                                        _editedProduct = PersonInfo1(
-                                          id: null,
-                                          first: value,
-                                          last: _editedProduct.last,
-                                          description:
-                                              _editedProduct.description,
-                                          price: _editedProduct.price,
-                                          email: _editedProduct.email,
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(vertical: 5),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Last Name',
-                                      ),
-                                      textInputAction: TextInputAction.next,
-                                      onFieldSubmitted: (_) {
-                                        FocusScope.of(context)
-                                            .requestFocus(_socialFocusNode);
-                                      },
-                                      focusNode: _lastNameFocusNode,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Please provide a value.';
-                                        }
-                                        return null;
-                                      },
-                                      onSaved: (value) {
-                                        _editedProduct = PersonInfo1(
-                                          id: null,
-                                          first: _editedProduct.first,
-                                          last: value,
-                                          description:
-                                              _editedProduct.description,
-                                          price: _editedProduct.price,
-                                          email: _editedProduct.email,
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(vertical: 5),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Social Security Number',
-                                      ),
-                                      textInputAction: TextInputAction.next,
-                                      keyboardType: TextInputType.number,
-                                      focusNode: _socialFocusNode,
-                                      onFieldSubmitted: (_) {
-                                        FocusScope.of(context)
-                                            .requestFocus(_emailFocusNode);
-                                      },
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Please enter a value';
-                                        }
-                                        if (value.length < 9 &&
-                                            value.length > 0) {
-                                          return 'Social must have nine digits, no spaces or dashes';
-                                        }
-                                        if (double.tryParse(value) == null) {
-                                          return 'Please enter a valid social. 601 00 0000';
-                                        }
-                                      },
-                                      onSaved: (value) {
-                                        _editedProduct = PersonInfo1(
-                                          id: null,
-                                          first: _editedProduct.first,
-                                          last: _editedProduct.last,
-                                          description:
-                                              _editedProduct.description,
-                                          price: double.parse(value),
-                                          email: _editedProduct.email,
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(vertical: 5),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'Email',
-                                      ),
-                                      keyboardType: TextInputType.emailAddress,
-                                      focusNode: _emailFocusNode,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Please enter an email address.';
-                                        }
-                                        if (!value.endsWith('.com') &&
-                                            !value.endsWith('.org')) {
-                                          return 'Please enter a valid email address.';
-                                        }
-                                        if (!value.contains('@')) {
-                                          return 'Please enter a valid @ email address.';
-                                        }
-                                        return null;
-                                      },
-                                      onSaved: (value) {
-                                        _editedProduct = PersonInfo1(
-                                          id: null,
-                                          first: _editedProduct.first,
-                                          last: _editedProduct.last,
-                                          description:
-                                              _editedProduct.description,
-                                          price: _editedProduct.price,
-                                          email: value,
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  key: _form,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'First Name',
                             ),
+                            textInputAction: TextInputAction.next,
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context)
+                                  .requestFocus(_lastNameFocusNode);
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please provide a first name.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: value,
+                                last: _editedProduct.last,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: _editedProduct.email,
+                                social: _editedProduct.social,
+                              );
+                            },
                           ),
-                          // ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Last Name',
+                            ),
+                            textInputAction: TextInputAction.next,
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context)
+                                  .requestFocus(_socialFocusNode);
+                            },
+                            focusNode: _lastNameFocusNode,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please provide a last name.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: _editedProduct.first,
+                                last: value,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: _editedProduct.email,
+                                social: _editedProduct.social,
+                              );
+                            },
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Social Security Number',
+                            ),
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.number,
+                            focusNode: _socialFocusNode,
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context)
+                                  .requestFocus(_emailFocusNode);
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please enter a social';
+                              }
+                              if (value.length >= 12 
+                              || value.length < 11
+                                  ) {
+                                return 'Social must have nine digits with dashes; 000-00-0000';
+                              }
+                              // if (double.tryParse(value) == null) {
+                              //   return 'Please enter a valid social. 000 00 0000';
+                              // }
+                              if (!value.contains('-')) {
+                                return 'Please enter a valid social with dashes. 000-00-0000';
+                              }
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: _editedProduct.first,
+                                last: _editedProduct.last,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: _editedProduct.email,
+                                social: value,
+                              );
+                            },
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Email',
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            focusNode: _emailFocusNode,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please enter an email address.';
+                              }
+                              if (!value.endsWith('.com') &&
+                                  !value.endsWith('.org')) {
+                                return 'Please enter a valid email address.';
+                              }
+                              if (!value.contains('@')) {
+                                return 'Please enter a valid @ email address.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _editedProduct = PersonInfo1(
+                                id: null,
+                                first: _editedProduct.first,
+                                last: _editedProduct.last,
+                                description: _editedProduct.description,
+                                price: _editedProduct.price,
+                                email: value,
+                                social: _editedProduct.social,
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // ),
                           SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -290,34 +300,31 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              FlatButton(
-                                onPressed: _saveForm,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Text(
-                                      'Submit',
-                                      style: TextStyle(
-                                        color: Colors.cyan[700],
-                                        fontSize: 20.0,
-                                      ),
-                                    ),
-                                    SizedBox(width: 10.0),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.cyan[700],
-                                      size: 20.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              // FlatButton(
+                              //   onPressed: _saveForm,
+                              //   child: Row(
+                              //     mainAxisAlignment: MainAxisAlignment.center,
+                              //     mainAxisSize: MainAxisSize.min,
+                              //     children: <Widget>[
+                              //       Text(
+                              //         'Submit',
+                              //         style: TextStyle(
+                              //           color: Colors.cyan[700],
+                              //           fontSize: 20.0,
+                              //         ),
+                              //       ),
+                              //       SizedBox(width: 10.0),
+                              //       Icon(
+                              //         Icons.arrow_forward,
+                              //         color: Colors.cyan[700],
+                              //         size: 20.0,
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
                               Spacer(),
                               FlatButton(
-                                onPressed: () {
-                                  clickNext(context);
-                                  print(Text('Next button hit'));
-                                },
+                                onPressed: _saveForm,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   mainAxisSize: MainAxisSize.min,
@@ -420,6 +427,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                                 description: _editedProduct.description,
                                 price: _editedProduct.price,
                                 email: _editedProduct.email,
+                                social: _editedProduct.social,
                               );
                             },
                           ),
@@ -439,7 +447,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             focusNode: _lastNameFocusNode,
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please provide a value.';
+                                return 'Please provide a last name.';
                               }
                               return null;
                             },
@@ -451,6 +459,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                                 description: _editedProduct.description,
                                 price: _editedProduct.price,
                                 email: _editedProduct.email,
+                                social: _editedProduct.social,
                               );
                             },
                           ),
@@ -471,13 +480,18 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             },
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please enter a value';
+                                return 'Please enter a social';
                               }
-                              if (value.length < 9 && value.length > 0) {
-                                return 'Social must have nine digits, no spaces or dashes';
+                              if (value.length >= 12 
+                              || value.length < 11
+                                  ) {
+                                return 'Social must have nine digits with dashes; 000-00-0000';
                               }
-                              if (double.tryParse(value) == null) {
-                                return 'Please enter a valid social. 601 00 0000';
+                              // if (double.tryParse(value) == null) {
+                              //   return 'Please enter a valid social. 000 00 0000';
+                              // }
+                              if (!value.contains('-')) {
+                                return 'Please enter a valid social with dashes. 000-00-0000';
                               }
                             },
                             onSaved: (value) {
@@ -486,8 +500,9 @@ class _PersonalInfoState extends State<PersonalInfo> {
                                 first: _editedProduct.first,
                                 last: _editedProduct.last,
                                 description: _editedProduct.description,
-                                price: double.parse(value),
+                                price: _editedProduct.price,
                                 email: _editedProduct.email,
+                                social: value,
                               );
                             },
                           ),
@@ -522,6 +537,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                                 description: _editedProduct.description,
                                 price: _editedProduct.price,
                                 email: value,
+                                social: _editedProduct.social,
                               );
                             },
                           ),
@@ -554,34 +570,31 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    FlatButton(
-                      onPressed: _saveForm,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(
-                            'Submit',
-                            style: TextStyle(
-                              color: Colors.cyan[700],
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          SizedBox(width: 10.0),
-                          Icon(
-                            Icons.arrow_forward,
-                            color: Colors.cyan[700],
-                            size: 20.0,
-                          ),
-                        ],
-                      ),
-                    ),
+                    // FlatButton(
+                    //   onPressed: _saveForm,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     mainAxisSize: MainAxisSize.min,
+                    //     children: <Widget>[
+                    //       Text(
+                    //         'Submit',
+                    //         style: TextStyle(
+                    //           color: Colors.cyan[700],
+                    //           fontSize: 20.0,
+                    //         ),
+                    //       ),
+                    //       SizedBox(width: 10.0),
+                    //       Icon(
+                    //         Icons.arrow_forward,
+                    //         color: Colors.cyan[700],
+                    //         size: 20.0,
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Spacer(),
                     FlatButton(
-                      onPressed: () {
-                        clickNext(context);
-                        print(Text('Next button hit'));
-                      },
+                      onPressed: _saveForm,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
