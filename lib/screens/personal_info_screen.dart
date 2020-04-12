@@ -472,7 +472,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                               labelText: 'Social Security Number',
                             ),
                             textInputAction: TextInputAction.next,
-                            keyboardType: TextInputType.number,
+                            // keyboardType: TextInputType.number,
                             focusNode: _socialFocusNode,
                             onFieldSubmitted: (_) {
                               FocusScope.of(context)
