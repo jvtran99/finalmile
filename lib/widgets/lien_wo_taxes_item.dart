@@ -148,47 +148,6 @@ Widget buildLienWoTaxesItem(context, String lender, String lienType, String bala
                 ],
               ),
             ),
-            // SizedBox(
-            //   height: 20,
-            // ),
-            // Text(
-            //   'Are Taxes and Insurance included in the payment?',
-            //   style: TextStyle(
-            //     color: Theme.of(context).primaryColorLight,
-            //   ),
-            // ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: <Widget>[
-            //     FlatButton(
-            //       color: Colors.lightBlue,
-            //       onPressed: () => propertyInput(context),
-            //       child: Text(
-            //         'YES',
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //     ),
-            //     FlatButton(
-            //       color: Colors.lightBlue,
-            //       onPressed: () {},
-            //       child: Text(
-            //         'NO',
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //     ),
-            //   ],
-            // ),
-            Row(
-              children: <Widget>[
-                CheckBoxWidget(),
-                Text(
-                  'Pay loan off with my new mortgage',
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColorLight,
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),

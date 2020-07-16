@@ -298,7 +298,7 @@ class _LoanPurposeState extends State<LoanPurpose> {
           alignment: Alignment.topCenter,
           width: 500,
           // padding: EdgeInsets.all(30),
-          child: SingleChildScrollView(
+          // child: SingleChildScrollView(
             child: Container(
               color: Colors.grey[50],
               height: MediaQuery.of(context).size.height,
@@ -465,38 +465,13 @@ class _LoanPurposeState extends State<LoanPurpose> {
                     ),
                   ),
 
-                  // Expanded(
-                  //   child: Container(
-                  //     // margin: EdgeInsets.all(30),
-                  //     width: double.infinity,
-                  //     child: Align(
-                  //       alignment: FractionalOffset.bottomCenter,
-                  //       child: Row(
-                  //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //         children: <Widget>[
-                  //           GestureDetector(
-                  //             onTap: () {
-                  //               clickBack(context);
-                  //               print('Back button hit');
-                  //             },
-                  //             child: buildCustomButton1(context, 'Back'),
-                  //           ),
-                  //           Spacer(),
-                  //           GestureDetector(
-                  //             onTap: () => clickNext(context),
-                  //             child: buildCustomButton1(context, 'Next'),
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+
                 ],
               ),
             ),
           ),
         ),
-      ),
+      // ),
     );
   }
 

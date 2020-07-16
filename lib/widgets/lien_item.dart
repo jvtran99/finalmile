@@ -168,22 +168,6 @@ Widget buildLienItem(context, String lender, String lienType, String balance,
               children: <Widget>[
                 ChangeButton(),
                 ChangeButtonNo(),
-                // FlatButton(
-                //   color: Colors.lightBlue,
-                //   onPressed: () {},
-                //   child: Text(
-                //     'YES',
-                //     style: TextStyle(color: Colors.white),
-                //   ),
-                // ),
-                // FlatButton(
-                //   color: Colors.lightBlue,
-                //   onPressed: () {},
-                //   child: Text(
-                //     'NO',
-                //     style: TextStyle(color: Colors.white),
-                //   ),
-                // ),
               ],
             ),
             Row(
@@ -193,6 +177,7 @@ Widget buildLienItem(context, String lender, String lienType, String balance,
                   'Pay loan off with my new mortgage',
                   style: TextStyle(
                     color: Theme.of(context).primaryColorLight,
+                    fontSize: 12,
                   ),
                 ),
               ],

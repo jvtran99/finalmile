@@ -146,39 +146,39 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                               //   ),
                               // ),
                               Align(
-                            alignment: FractionalOffset.bottomRight,
-                            child: Row(
-                              children: <Widget>[
-                                Spacer(),
-                                FlatButton(
-                                  onPressed: () {
-                                    clickApply(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        'Get Started',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
+                                alignment: FractionalOffset.bottomRight,
+                                child: Row(
+                                  children: <Widget>[
+                                    Spacer(),
+                                    FlatButton(
+                                      onPressed: () {
+                                        clickApply(context);
+                                        print(Text('Next button hit'));
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Text(
+                                            'Get Started',
+                                            style: TextStyle(
+                                              color: Colors.cyan[700],
+                                              fontSize: 20.0,
+                                            ),
+                                          ),
+                                          SizedBox(width: 10.0),
+                                          Icon(
+                                            Icons.arrow_forward,
+                                            color: Colors.cyan[700],
+                                            size: 20.0,
+                                          ),
+                                        ],
                                       ),
-                                      SizedBox(width: 10.0),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.cyan[700],
-                                        size: 20.0,
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                   
+                              ),
                             ],
                           ),
                         ),
@@ -205,10 +205,10 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
       child: Container(
         // color: Colors.red,
         // height: MediaQuery.of(context).size.height,
-        child: SingleChildScrollView(
+        // child: SingleChildScrollView(
           child: Container(
             width: 500,
-            height: MediaQuery.of(context).size.height - 20,
+            height: MediaQuery.of(context).size.height - 60,
             child: Container(
               margin: const EdgeInsets.all(10.0),
               child: Column(
@@ -221,88 +221,85 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
                           child: Row(
                             children: <Widget>[
                               SwitchButton(),
-                              Text('Rate Alerts'),
+                              Text(
+                                'Rate Alerts',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
                             ],
                           ),
                         ),
-                        Spacer(),
+                        // Spacer(),
                         Container(
                           child: Row(
                             children: <Widget>[
                               CheckBoxWidget(),
-                              Text('Minimize Closing Costs'),
+                              Text(
+                                'Minimize Closing Costs',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
-  
+
                   Expanded(
-                      child: ListView.builder(
-                        itemCount: loantypes.length,
-                        itemBuilder: (ctx, i) => RateCard(
-                          loantypes[i].id,
-                          loantypes[i].year,
-                          loantypes[i].rate,
-                          loantypes[i].apr,
-                          loantypes[i].payment,
-                          loantypes[i].fees,
-                        ),
+                    child: ListView.builder(
+                      itemCount: loantypes.length,
+                      itemBuilder: (ctx, i) => RateCard(
+                        loantypes[i].id,
+                        loantypes[i].year,
+                        loantypes[i].rate,
+                        loantypes[i].apr,
+                        loantypes[i].payment,
+                        loantypes[i].fees,
                       ),
                     ),
-                 
-                  // Divider(),
-                  // Expanded(
-                  //                     child: Container(
-                  //     padding: EdgeInsets.fromLTRB(0, 0, 10, 10),
-                  //     alignment: Alignment.topRight,
-                  //     child: GestureDetector(
-                  //       onTap: () => clickApply(context),
-                  //       child: buildCustomButton1(context, 'Apply'),
-                  //     ),
-                  //   ),
-                  // ),
+                  ),
+
                   Align(
-                            alignment: FractionalOffset.bottomRight,
-                            child: Row(
-                              children: <Widget>[
-                                Spacer(),
-                                FlatButton(
-                                  onPressed: () {
-                                    clickApply(context);
-                                    print(Text('Next button hit'));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        'Get Started',
-                                        style: TextStyle(
-                                          color: Colors.cyan[700],
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.0),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.cyan[700],
-                                        size: 20.0,
-                                      ),
-                                    ],
-                                  ),
+                    alignment: FractionalOffset.bottomRight,
+                    child: Row(
+                      children: <Widget>[
+                        Spacer(),
+                        FlatButton(
+                          onPressed: () {
+                            clickApply(context);
+                            print(Text('Next button hit'));
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text(
+                                'Get Started',
+                                style: TextStyle(
+                                  color: Colors.cyan[700],
+                                  fontSize: 20.0,
                                 ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(width: 10.0),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.cyan[700],
+                                size: 20.0,
+                              ),
+                            ],
                           ),
-                      
-                      
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-        ),
+        // ),
       ),
     );
   }
@@ -311,7 +308,7 @@ class _RatesScreenRdState extends State<RatesScreenRd> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, "View Rates"),
-        drawer: MenuDrawer(),
+      drawer: MenuDrawer(),
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 500) {
           return _bigDisplay();
