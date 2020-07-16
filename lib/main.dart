@@ -24,14 +24,13 @@ import './screens/loan_conditions.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (ctx) => PersonProvider(),
-          child: MaterialApp(
-        title: 'Certianty',
+      child: MaterialApp(
+        title: 'Certianty12',
         theme: ThemeData(
           // fontFamily: 'Raleway',
           primarySwatch: Colors.lightBlue,
@@ -77,8 +76,6 @@ class MyApp extends StatelessWidget {
           UnderwritingScreen.routeName: (ctx) => UnderwritingScreen(),
           AnalyzingLoan.routeName: (ctx) => AnalyzingLoan(),
           LoanConditions.routeName: (ctx) => LoanConditions(),
-
-          
         },
       ),
     );
